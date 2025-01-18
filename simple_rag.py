@@ -7,12 +7,20 @@ from langchain_groq import ChatGroq
 import asyncio
 import time  # For time tracking
 from langchain_chroma import Chroma
+from langchain_community.llms import HuggingFaceHub
 from dotenv import load_dotenv
 
 load_dotenv()
 
 st.title("🤖 FracsNet Chatbot")
 llm = ChatGroq(model_name="Llama3-8b-8192")
+
+# Initialize Hugging Face model
+# llm = HuggingFaceHub(
+#     repo_id="google/flan-t5-base",  # You can change this to any other model
+#     model_kwargs={"temperature": 0.7, "max_length": 512}
+# )
+
 
 @st.cache_resource
 def load_vectordb():
