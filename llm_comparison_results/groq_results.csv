@@ -1,0 +1,6 @@
+Query,Result,Time Taken (seconds)
+what is Machine Learning,"Machine Learning is a branch of artificial intelligence (AI) and computer science that focuses on using data and algorithms to imitate the way humans learn, gradually improving its accuracy.",1.5644557476043701
+who is the Prime minister of India,I don't know.,0.8342099189758301
+what is ensemble learning technique,"Ensemble learning is a machine learning technique that combines multiple models to improve overall performance by reducing variance, bias, or improving predictions. Examples of ensemble methods include bagging (Random Forests) and boosting (AdaBoost, Gradient Boosting Machines, XGBoost, LightGBM).",1.5172481536865234
+what is PCA,PCA is Helpful for reducing the dimensionality of data while retaining as much variance as possible.,2.777252197265625
+who is the founder of Tesla,I don't know.,0.5497732162475586
