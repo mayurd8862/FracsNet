@@ -4,3 +4,6 @@ chroma_db
 ML.pdf
 doc.pdf
 db
+model
+tokenizer
+embedding_cache
