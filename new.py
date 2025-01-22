@@ -1,45 +1,52 @@
 import streamlit as st
 from streamlit_chat import message
 from langchain_community.embeddings import SentenceTransformerEmbeddings
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.document_loaders import PyPDFLoader
-from langchain_community.vectorstores import FAISS
 from langchain.prompts import PromptTemplate
 from langchain.chains import RetrievalQA
 from langchain_groq import ChatGroq
-import tempfile
 import asyncio
-
-st.title("🤖Chat with Data")
-
-# groq_api_key = st.secrets["GROQ_API_KEY"]
-# llm = ChatGroq(groq_api_key=groq_api_key, model_name="Llama3-8b-8192")
-
-
+import time  # For time tracking
+from langchain_chroma import Chroma
+from langchain_community.llms import HuggingFaceHub
 from langchain_ollama.llms import OllamaLLM
-llm = OllamaLLM(model="mistral")
+from dotenv import load_dotenv
+
+load_dotenv()
+
+st.title("🤖 FracsNet Chatbot")
+llm = ChatGroq(model_name="Llama3-8b-8192")
 
 
 @st.cache_resource
-def load_and_process_data(files):
-    all_splits = []
-    for file in files:
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as temp_file:
-            temp_file.write(file.read())
-            file_path = temp_file.name
-        
-        loader = PyPDFLoader(file_path)
-        data = loader.load_and_split()
-        text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=2000,
-            chunk_overlap=100
-        )
-        splits = text_splitter.split_documents(data)
-        all_splits.extend(splits)
-    
+def load_vectordb():
+    # Initialize the embedding model
     embedding = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
-    vectordb = FAISS.from_documents(all_splits, embedding)
-    return vectordb
+    
+    try:
+        # Load the previously saved Chroma vector store
+        loaded_db = Chroma(persist_directory="./chroma_db", embedding_function=embedding)
+        return loaded_db
+    except Exception as e:
+        print(f"Error loading vector database: {e}")
+        return None
+    
+
+
+# Add recommendations to session state
+if "recommendations_history" not in st.session_state:
+    st.session_state.recommendations_history = []
+
+
+def generate_recommendations(query):
+    # Logic for generating recommendations based on the query/response
+    # This is a placeholder; replace with actual logic
+    recommendations = [
+        "Recommendation 1: Explore related medications.",
+        "Recommendation 2: Read research materials for deeper insights.",
+        "Recommendation 3: Consider lifestyle changes to complement medication."
+    ]
+    return recommendations
+
 
 async def response_generator(vectordb, query):
     template = """Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer. Use three sentences maximum. Keep the answer as concise as possible. {context} Question: {question} Helpful Answer:"""
@@ -48,31 +55,51 @@ async def response_generator(vectordb, query):
     
     result = await asyncio.to_thread(qa_chain, {"query": query})
     return result["result"]
+import streamlit as st
+# ... (previous imports remain the same)
 
-files = st.file_uploader("Upload PDF File(s)", type=["pdf"], accept_multiple_files=True)
-submit_pdf = st.checkbox('Submit and chat (PDF)')
+import streamlit as st
+# ... (previous imports)
 
-st.subheader("", divider='rainbow')
-st.markdown(" ")
+if "messages" not in st.session_state:
+    st.session_state.messages = []
 
-if files and submit_pdf:
-    vectordb = load_and_process_data(files)
-    
-    if "messages" not in st.session_state:
-        st.session_state.messages = []
-    
+
+vectordb = load_vectordb()
+if vectordb:
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
+            if message.get("recommendations"):
+                with st.container():
+                    st.markdown("**Recommendations:**")
+                    for rec in message["recommendations"]:
+                        st.markdown(f"- {rec}")
     
     if query := st.chat_input("What is up?"):
         st.session_state.messages.append({"role": "user", "content": query})
         with st.chat_message("user"):
             st.markdown(query)
         
+        start_time = time.time()
         with st.spinner("Generating response..."):
             response = asyncio.run(response_generator(vectordb, query))
+        end_time = time.time()
+        
+        response_with_time = f"{response}\n\n*(Response generated in {end_time - start_time:.2f} seconds)*"
+        recommendations = generate_recommendations(query)
         
         with st.chat_message("assistant"):
-            st.markdown(response)
-        st.session_state.messages.append({"role": "assistant", "content": response})
+            st.markdown(response_with_time)
+            with st.container():
+                st.markdown("**Recommendations:**")
+                for rec in recommendations:
+                    st.markdown(f"- {rec}")
+                st.markdown("**--------------------------------------**")
+        
+        
+        st.session_state.messages.append({
+            "role": "assistant", 
+            "content": response_with_time,
+            "recommendations": recommendations
+        })
