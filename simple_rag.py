@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 st.title("🤖 FracsNet Chatbot")
-# # llm = ChatGroq(model_name="Llama3-8b-8192")
+llm = ChatGroq(model_name="Llama3-8b-8192")
 # from langchain_groq import ChatGroq
 # Initialize Hugging Face model
 # llm = HuggingFaceHub(
@@ -23,7 +23,7 @@ st.title("🤖 FracsNet Chatbot")
 # )
 
 
-llm = OllamaLLM(model="mistral")
+# llm = OllamaLLM(model="mistral")
 
 
 

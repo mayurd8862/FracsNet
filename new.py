@@ -14,8 +14,16 @@ from dotenv import load_dotenv
 load_dotenv()
 
 st.title("🤖 FracsNet Chatbot")
-llm = ChatGroq(model_name="Llama3-8b-8192")
+# llm = ChatGroq(model_name="Llama3-8b-8192")
 
+from langchain_ollama import ChatOllama
+
+llm = ChatOllama(
+    model = "nemotron-mini",
+    temperature = 0.8,
+    num_predict = 256,
+    # other params ...
+)
 
 @st.cache_resource
 def load_vectordb():

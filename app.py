@@ -8,16 +8,24 @@ import asyncio
 import time  # For time tracking
 from langchain_chroma import Chroma
 from langchain_community.llms import HuggingFaceHub
+from langchain_ollama.llms import OllamaLLM
 from dotenv import load_dotenv
 
 load_dotenv()
 
 st.title("🤖 FracsNet Chatbot")
+llm = ChatGroq(model_name="Llama3-8b-8192")
+# from langchain_groq import ChatGroq
 # Initialize Hugging Face model
-llm = HuggingFaceHub(
-    repo_id="google/flan-t5-base",  # You can change this to any other model
-    model_kwargs={"temperature": 0.7, "max_length": 512}
-)
+# llm = HuggingFaceHub(
+#     repo_id="google/flan-t5-base",  # You can change this to any other model
+#     model_kwargs={"temperature": 0.7, "max_length": 512}
+# )
+
+
+# llm = OllamaLLM(model="mistral")
+
+
 
 @st.cache_resource
 def load_vectordb():
@@ -31,6 +39,18 @@ def load_vectordb():
     except Exception as e:
         print(f"Error loading vector database: {e}")
         return None
+    
+
+def generate_recommendations(query, response):
+    # Logic for generating recommendations based on the query/response
+    # This is a placeholder; replace with actual logic
+    recommendations = [
+        "Recommendation 1: Explore related medications.",
+        "Recommendation 2: Read research materials for deeper insights.",
+        "Recommendation 3: Consider lifestyle changes to complement medication."
+    ]
+    return recommendations
+
 
 async def response_generator(vectordb, query):
     template = """Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer. Use three sentences maximum. Keep the answer as concise as possible. {context} Question: {question} Helpful Answer:"""
@@ -70,3 +90,10 @@ if vectordb:
         with st.chat_message("assistant"):
             st.markdown(response_with_time)
         st.session_state.messages.append({"role": "assistant", "content": response_with_time})
+
+        # Generate and display recommendations
+        recommendations = generate_recommendations(query, response)
+        with st.container(height=200):
+            st.markdown("**Recommendations:**")
+            for rec in recommendations:
+                st.markdown(f"- {rec}")
