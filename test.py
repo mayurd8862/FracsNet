@@ -112,6 +112,9 @@
 
 
 
+#######################################
+#    Question Recommendation Added    #
+#######################################
 
 import streamlit as st
 
@@ -137,10 +140,20 @@ if st.session_state.selected_recommendation:
     st.markdown(f"📝 You selected: **{st.session_state.selected_recommendation}**")
 
 
-with st.expander("See explanation"):
-    st.write('''
-        The chart above shows some numbers I picked for you.
-        I rolled actual dice for these, so they're *guaranteed* to
-        be random.
-    ''')
-    st.image("https://static.streamlit.io/examples/dice.jpg")
+
+
+######################################
+#    Product Recommendation Added    #
+######################################
+
+with st.expander("📌 **You may also like ...**"):
+    
+    # Create three columns
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        st.image("assets/youm.png", caption="youm vitamin")
+    with col2:
+        st.image("assets/herbal_tea.png", caption="Herbal Tea")
+    with col3:
+        st.image("assets/protein_powder.png", caption="Protein Powder")
