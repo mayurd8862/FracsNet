@@ -85,3 +85,4 @@ if vectordb:
         with st.chat_message("assistant"):
             st.markdown(response_with_time)
         st.session_state.messages.append({"role": "assistant", "content": response_with_time})
+
