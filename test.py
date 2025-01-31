@@ -137,7 +137,7 @@ with st.expander("📌 **Check out these relevant recommendations...**"):
 
 # Display selected recommendation outside the expander
 if st.session_state.selected_recommendation:
-    st.markdown(f"📝 You selected: **{st.session_state.selected_recommendation}**")
+    st.markdown(f"📝 You selected: **{st.session_state. selected_recommendation}**")
 
 
 
