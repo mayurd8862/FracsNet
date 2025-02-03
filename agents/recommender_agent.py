@@ -32,7 +32,7 @@ def recommend_query(query: str) -> dict:
         {format_instructions}
         Query: {query}
         
-        Provide three suggested follow-up questions in a structured JSON format. phrase questions naturally from the chatbot's perspective.
+        phrase questions naturally from the chatbot's perspective.
         """,
         input_variables=["query"],
         partial_variables={"format_instructions": parser.get_format_instructions()}

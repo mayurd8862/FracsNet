@@ -88,7 +88,7 @@ def compare_agent(product_name):
 # Example usage
 if __name__ == "__main__":
     try:
-        result = compare_agent("azoran")
+        result = compare_agent("pentasa")
         print("\nPrice Comparison Results:")
         print(result)
     except Exception as e:
