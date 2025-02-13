@@ -1,18 +1,21 @@
 Question,Simple RAG result,Simple RAG time
-Which pain reliever is LEAST suitable for someone with stomach ulcers?,"Based on the context, Ibuprofen is the pain reliever that is LEAST suitable for someone with stomach ulcers. The context states that Ibuprofen has side effects such as stomach upset, nausea, and increased risk of heart attack/stroke, and it is contraindicated for individuals with a history of stomach ulcers.",0.9224245548248291
-Ibuprofen and Aspirin share what warning?,"Ibuprofen and Aspirin are not mentioned in the given context. However, since Ibuprofen's interactions include ""May interact with blood thinners, aspirin, other NSAIDs"", we can infer that Ibuprofen may interact with Aspirin.",0.7160465717315674
-Name two medications that might interact with Warfarin.,"Based on the provided context, I can help you with that.
+Which pain reliever is LEAST suitable for someone with stomach ulcers?,"According to the context, Ibuprofen is a non-steroidal anti-inflammatory drug (NSAID) that is used to reduce pain, fever, and inflammation. It is contraindicated for individuals with a history of stomach ulcers. Therefore, Ibuprofen is the pain reliever that is LEAST suitable for someone with stomach ulcers.",15.308556079864502
+Ibuprofen and Aspirin share what warning?,"According to the context, Ibuprofen and Aspirin do not share a specific warning mentioned in the provided information. Aspirin is only mentioned as an interaction with Ibuprofen, but there is no shared warning mentioned. Therefore, I don't know the answer to this question.",26.240416765213013
+Name two medications that might interact with Warfarin.,"Based on the provided context, two medications that might interact with Warfarin are:
 
-According to the information, medications that might interact with Warfarin include:
+1. Aspirin (36): The context states that Aspirin may interact with blood thinners, which includes Warfarin.
+2. Clopidogrel (37): The context states that Clopidogrel may interact with other medications that increase bleeding risk, which includes blood thinners like Warfarin.",25.20006012916565
+What is the first-line medication for Type 2 Diabetes?,I don't know. The context does not mention a specific medication as the first-line treatment for Type 2 diabetes.,25.048806190490723
+Which medication might treat both insomnia and depression?,"Based on the provided context, the medications that might treat both insomnia and depression are:
 
-1. Aspirin (mentioned in medication summary 36): May interact with blood thinners, including Warfarin.
-2. Clopidogrel (mentioned in medication summary 37): May interact with other medications that increase bleeding risk, including Warfarin.
+* Zoloft (sertraline) - Common side effects include insomnia and depression.
+* Prozac (fluoxetine) - Common side effects include insomnia and depression.
+* Paxil (paroxetine) - Common side effects include insomnia and depression.
+* Celexa (citalopram) - Common side effects include insomnia and depression.
 
-Please note that this is based on the provided context, and it's essential to consult with a healthcare professional for personalized advice on medication interactions.",19.748090505599976
-What is the first-line medication for Type 2 Diabetes?,I don't know.,25.330217838287354
-Which medication might treat both insomnia and depression?,"Based on the provided context, both Zoloft and Prozac are mentioned as treating depression, and they both have insomnia as a common side effect. Additionally, Celexa and Paxil are also mentioned as treating depression and have insomnia as a common side effect. Therefore, the answer is that all four medications (Zoloft, Prozac, Celexa, and Paxil) might treat both insomnia and depression.",19.463250398635864
-Difference between bronchodilator and inhaled corticosteroid?,"I don't know. The provided context only discusses specific medications (salmeterol, albuterol, ipratropium, tiotropium, and montelukast) and does not mention bronchodilators or inhaled corticosteroids in general.",25.681642055511475
-Long-term side effects of Prednisone?,"According to the context, the long-term use of Prednisone can have significant side effects.",25.369845151901245
+All of these medications work by increasing levels of serotonin in the brain, which can help treat depression, and they also have insomnia as a common side effect.",19.087255239486694
+Difference between bronchodilator and inhaled corticosteroid?,"I don't know. The context only provides information about a specific bronchodilator, Salmeterol, and two other medications, Albuterol and Ipratropium. It does not provide information about inhaled corticosteroids or their differences from bronchodilators.",26.351330995559692
+Long-term side effects of Prednisone?,"According to the provided context, the long-term side effects of Prednisone are: ""Warnings: Long-term use can have significant side effects.""",26.421096086502075
 Contraindications for Clopidogrel vs. Warfarin?,"I don't know.
 
-The context only provides information about Enoxaparin, Aspirin, Clopidogrel, and Pravastatin. There is no information about Warfarin.",24.301037073135376
+The provided context only includes information about Clopidogrel (37. Name: Clopidogrel) and does not mention Warfarin. To provide an accurate answer, I would need more information about Warfarin's contraindications.",24.350144624710083
