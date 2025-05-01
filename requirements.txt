@@ -9,13 +9,11 @@ python-dotenv
 pymongo
 streamlit-option-menu
 sentence-transformers
-uuid
 email-validator
 pandas
 qdrant_client
 pymongo
 langchain_huggingface
-hashlib
 textblob
 smtplib
 email
