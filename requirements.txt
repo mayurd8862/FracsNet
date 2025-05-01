@@ -15,5 +15,4 @@ qdrant_client
 pymongo
 langchain_huggingface
 textblob
-email
 google-generativeai
