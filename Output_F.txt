@@ -1,0 +1,279 @@
+PS C:\Internship GenAI Last Sem\Comparision Agent> python app.py
+2025-04-19 16:07:36,114 - INFO - Set WindowsSelectorEventLoopPolicy.
+2025-04-19 16:07:36,595 - INFO - ChatGroq LLM initialized (llama3-70b-8192).
+Enter medicine/supplement name or health concern (e.g., 'Vitamin C 500mg tablets'): Compare Vitamin C Suppliments
+2025-04-19 16:07:40,527 - INFO - Starting search for 'Compare Vitamin C Suppliments'...
+2025-04-19 16:07:40,737 - INFO - Adjusted query for search: 'Vitamin C Suppliments buy online india'
+2025-04-19 16:07:40,737 - INFO - Searching SERP for adjusted query: Vitamin C Suppliments buy online india
+2025-04-19 16:07:40,737 - INFO - Fetching SERP for amazon.in...
+2025-04-19 16:07:40,738 - INFO - Fetching SERP for flipkart.com...
+2025-04-19 16:07:40,738 - INFO - Fetching SERP for 1mg.com...
+2025-04-19 16:07:40,738 - INFO - Fetching SERP for netmeds.com...
+2025-04-19 16:07:40,739 - INFO - Fetching SERP for apollopharmacy.in...
+2025-04-19 16:07:40,739 - INFO - Fetching SERP for pharmeasy.in...
+2025-04-19 16:07:40,739 - INFO - Fetching SERP for medplusmart.com...
+2025-04-19 16:07:40,740 - INFO - Fetching SERP for walmart.com...
+2025-04-19 16:07:41,880 - INFO - Got 5 results from SERP for flipkart.com
+2025-04-19 16:07:41,954 - INFO - Got 5 results from SERP for 1mg.com
+2025-04-19 16:07:42,046 - INFO - Got 5 results from SERP for amazon.in
+2025-04-19 16:07:42,840 - INFO - Got 5 results from SERP for netmeds.com
+2025-04-19 16:07:43,007 - INFO - Got 5 results from SERP for apollopharmacy.in
+2025-04-19 16:07:43,010 - INFO - Got 5 results from SERP for pharmeasy.in
+2025-04-19 16:07:43,925 - INFO - Got 5 results from SERP for medplusmart.com
+2025-04-19 16:07:44,448 - INFO - Got 5 results from SERP for walmart.com
+2025-04-19 16:07:44,449 - INFO - Received 40 raw organic results from SERP.
+2025-04-19 16:07:44,449 - INFO - Processing 40 raw organic results for scraping...
+2025-04-19 16:07:44,451 - INFO - Reached maximum total scrapes limit (15). Stopping scheduling.
+2025-04-19 16:07:44,452 - INFO - Gathering results for 15 scraping tasks...
+2025-04-19 16:07:44,452 - INFO - Scraping: https://www.amazon.in/Lim-Vitamin-Chewable-Tablets-Flavour/dp/B09CGRL5YY
+2025-04-19 16:07:44,453 - INFO - Scraping: https://www.amazon.in/Himalayan-Organics-Organic-Vitamin-1000mg/dp/B07Y7LKRS5
+2025-04-19 16:07:44,453 - INFO - Scraping: https://www.amazon.in/Himalayan-Organics-Vitamin-Immnunity-Antioxidant/dp/B08B6523XM       
+2025-04-19 16:07:44,453 - INFO - Scraping: https://www.flipkart.com/boldfit-vitamin-c-effervescent-tablets/p/itm91ea311c1fd32
+2025-04-19 16:07:44,454 - INFO - Scraping: https://www.flipkart.com/limcee-vitamin-c-500mg-chewable-tablets/p/itm8a5a2b9940356        
+2025-04-19 16:07:44,455 - INFO - Scraping: https://www.flipkart.com/healthaid-vitamin-c-1000mg-orange-20-effervescent-tablets/p/itm08f973f325db6
+2025-04-19 16:07:44,456 - INFO - Scraping: https://www.1mg.com/otc/limcee-vitamin-c-chewable-tablet-flavour-orange-otc173959?srsltid=AfmBOopLJlp7TzlQQ2as8uRlEsAAKGyLQmHhkw4Kwpap4gAmKLPjd0NC
+2025-04-19 16:07:44,458 - INFO - Scraping: https://www.1mg.com/otc/new-celin-500-vitamin-c-tablet-otc32913?srsltid=AfmBOoq4ZYbE4JYdc4zmZIJ68fmA2Lv9GlzoOVp_KisFuCTph-exYhJz
+2025-04-19 16:07:44,459 - INFO - Scraping: https://www.apollopharmacy.in/otc/vitamin-c-chewable-tablet?srsltid=AfmBOoqWeYUJqOhHB7NiRXmvxxGCYIZ_58fE-oxojM4xLEz9TIMA5Gc9
+2025-04-19 16:07:44,460 - INFO - Scraping: https://www.apollopharmacy.in/otc/ap-vitamin-c-effervescent-tablets-20-s?srsltid=AfmBOoptDjZcWk1BjQbXV-kq6_2B8VSFQ_xaAh2920c34lk5DWSZniS2
+2025-04-19 16:07:44,462 - INFO - Scraping: https://www.apollopharmacy.in/otc/pure-nutrition-multi-vitamin-tab-60-s?srsltid=AfmBOoobVeitSKCwYmeR0TO7hVFW_eF2XfUJigQve6KbL1wsJD_C_aIO
+2025-04-19 16:07:44,462 - INFO - Scraping: https://www.medplusmart.com/product/C-VIT-TAB_C_VI0002?srsltid=AfmBOopkmRKQk2ISpcsE6unFZXhbYVpfN4Bhu18iAYzhyBkWL-LBlyr7
+2025-04-19 16:07:44,462 - INFO - Scraping: https://www.medplusmart.com/product/C-VIT-30S-TAB_C_VI0002?srsltid=AfmBOoqdC1QKusb8Y9dAt3bPDMG6n0jCtaRQ8aahHYS26Bm1ZkPeiosx
+2025-04-19 16:07:44,462 - INFO - Scraping: https://www.medplusmart.com/product/cpercent2dvitpercent2dtablet_c-vit-tab_c_vi0002?srsltid=AfmBOorqbztd3aM3J81ad7cJd4yblWKH4zoemA9U9_N0IvvfNFlpF3We
+2025-04-19 16:07:44,462 - INFO - Scraping: https://www.medplusmart.com/product/asco-c-tab_asco0075?srsltid=AfmBOoq62B8a6FA31bfhm-bVm4rLbsq3F2mqZ3fUDJIfveZWrc_YvCAo
+Can not load response cookies: Illegal key '@synapse/init'
+Can not load response cookies: Illegal key '@synapse/config'
+Can not load response cookies: Illegal key '@synapse/legacy'
+Can not load response cookies: Illegal key '@synapse/platform'
+C:\Internship GenAI Last Sem\Comparision Agent\.venv\Lib\site-packages\soupsieve\css_parser.py:862: FutureWarning: The pseudo class ':contains' is deprecated, ':-soup-contains' should be used moving forward.
+  warnings.warn(  # noqa: B028
+2025-04-19 16:07:45,914 - INFO - Product unavailable detected by keyword in page text.
+2025-04-19 16:07:45,915 - INFO - Product detected as unavailable, skipping scrape: https://www.flipkart.com/boldfit-vitamin-c-effervescent-tablets/p/itm91ea311c1fd32
+2025-04-19 16:07:45,990 - INFO - Product unavailable detected by keyword in page text.
+2025-04-19 16:07:45,991 - INFO - Product detected as unavailable, skipping scrape: https://www.flipkart.com/limcee-vitamin-c-500mg-chewable-tablets/p/itm8a5a2b9940356
+2025-04-19 16:07:46,301 - INFO - Using page title: 'Apollo Pharmacy Vitamin C Effervescent, 20 Tablets' over SERP title: 'Vitamin C Effervescent, 20 Tablets' (Similarity: 0.71)
+2025-04-19 16:07:46,303 - INFO - Price found via LD+JSON (Offer): ₹165.00
+2025-04-19 16:07:46,538 - INFO - Refined details count: 2 (from initial 10)
+2025-04-19 16:07:46,609 - INFO - Found 0 potential certifications.
+2025-04-19 16:07:46,609 - INFO - Successfully scraped: Apollo Pharmacy Vitamin C Effervescent, 20 Tablets (₹165.00, Rating not available, Details: 2, Certs: 0)
+2025-04-19 16:07:46,925 - INFO - Keeping cleaned SERP title: 'Vitamin-C 500 Chewable Tablet' (Page title 'Vitamin-C 500 Chewable Tablet' too similar or not better)
+2025-04-19 16:07:46,927 - INFO - Price found via LD+JSON (Offer): ₹42.30
+2025-04-19 16:07:47,170 - INFO - Refined details count: 4 (from initial 16)
+2025-04-19 16:07:47,238 - INFO - Found 1 potential certifications.
+2025-04-19 16:07:47,239 - INFO - Successfully scraped: Vitamin-C 500 Chewable Tablet (₹42.30, Rating not available, Details: 4, Certs: 1)
+2025-04-19 16:07:47,397 - INFO - Keeping cleaned SERP title: 'Limcee Vitamin C Chewable Tablet | Flavour Orange' (Page title 'Limcee Vitamin C Chewable Tablet | Flavour Orange' too similar or not better)
+2025-04-19 16:07:47,398 - INFO - Price found via LD+JSON (Offer): ₹23.00
+2025-04-19 16:07:47,399 - INFO - Rating found via LD+JSON (AggregateRating): 4.6/5
+2025-04-19 16:07:47,441 - INFO - Refined details count: 4 (from initial 5)
+2025-04-19 16:07:47,477 - INFO - Found 0 potential certifications.
+2025-04-19 16:07:47,477 - INFO - Successfully scraped: Limcee Vitamin C Chewable Tablet | Flavour Orange (₹23.00, 4.6/5, Details: 4, Certs: 0)
+2025-04-19 16:07:47,492 - INFO - Price found via LD+JSON (AggregateOffer): ₹420.00
+2025-04-19 16:07:47,492 - INFO - Rating found via LD+JSON (AggregateRating): 5.0/5
+2025-04-19 16:07:47,493 - INFO - Refined details count: 2 (from initial 4)
+2025-04-19 16:07:47,496 - INFO - Found 0 potential certifications.
+2025-04-19 16:07:47,496 - INFO - Successfully scraped: Buy C VIT TAB Online at best Price in India (₹420.00, 5.0/5, Details: 2, Certs: 0)
+2025-04-19 16:07:47,526 - INFO - Rating found via LD+JSON (AggregateRating): 5.0/5
+2025-04-19 16:07:47,527 - INFO - Refined details count: 2 (from initial 4)
+2025-04-19 16:07:47,529 - INFO - Found 0 potential certifications.
+2025-04-19 16:07:47,530 - INFO - Successfully scraped: ASCO C TAB ( OLCARE LABORATORIES PVT LTD ) (Price not available, 5.0/5, Details: 2, Certs: 0)
+2025-04-19 16:07:47,545 - INFO - Refined details count: 0 (from initial 0)
+2025-04-19 16:07:47,546 - INFO - Found 0 potential certifications.
+2025-04-19 16:07:47,547 - INFO - Skipping product due to lack of compelling info (price, rating, details, certs): Buy c%2dvit%2dtablet_c vit tab Online at best Price in India (https://www.medplusmart.com/product/cpercent2dvitpercent2dtablet_c-vit-tab_c_vi0002?srsltid=AfmBOorqbztd3aM3J81ad7cJd4yblWKH4zoemA9U9_N0IvvfNFlpF3We)
+Can not load response cookies: Illegal key '@synapse/init'
+Can not load response cookies: Illegal key '@synapse/config'
+Can not load response cookies: Illegal key '@synapse/legacy'
+Can not load response cookies: Illegal key '@synapse/platform'
+2025-04-19 16:07:47,719 - INFO - Keeping cleaned SERP title: 'New Celin 500 Vitamin C Tablet' (Page title 'New Celin 500 Vitamin C Tablet' too similar or not better)
+2025-04-19 16:07:47,720 - INFO - Price found via LD+JSON (Offer): ₹39.00
+2025-04-19 16:07:47,721 - INFO - Rating found via LD+JSON (AggregateRating): 4.4/5
+2025-04-19 16:07:47,770 - INFO - Refined details count: 4 (from initial 18)
+2025-04-19 16:07:47,809 - INFO - Found 0 potential certifications.
+2025-04-19 16:07:47,810 - INFO - Successfully scraped: New Celin 500 Vitamin C Tablet (₹39.00, 4.4/5, Details: 4, Certs: 0)
+2025-04-19 16:07:48,267 - INFO - Using page title: 'Lim-O Vitamin C(500mg) & Zinc, Chewable Tablets for Immunity Skin – Vegan Formula For Men Women, Orange Flavour (45 Tablets)' over SERP title: 'Lim-O Vitamin C(500mg) & Zinc, Chewable Tablets for ...' (Similarity: 0.42)
+2025-04-19 16:07:48,323 - INFO - Price found via element selector '.a-price .a-offscreen': ₹350.00
+2025-04-19 16:07:48,347 - INFO - Rating found via 'out of' pattern in element: 4.0/5
+2025-04-19 16:07:48,359 - INFO - Refined details count: 3 (from initial 5)
+2025-04-19 16:07:48,492 - INFO - Found 0 potential certifications.
+2025-04-19 16:07:48,492 - INFO - Successfully scraped: Lim-O Vitamin C(500mg) & Zinc, Chewable Tablets for Immunity Skin – Vegan Formula For Men Women, Orange Flavour (45 Tablets) (₹350.00, 4.0/5, Details: 3, Certs: 0)
+2025-04-19 16:07:48,937 - INFO - Keeping cleaned SERP title: 'Pure Nutrition Vitamin C, 60 Tablets' (Page title 'Pure Nutrition Vitamin C, 60 Tablets' too similar or not better)
+2025-04-19 16:07:49,213 - INFO - Price found via element selector 'span:contains('₹')': ₹220.00
+2025-04-19 16:07:49,467 - INFO - Refined details count: 1 (from initial 6)
+2025-04-19 16:07:49,538 - INFO - Found 0 potential certifications.
+2025-04-19 16:07:49,539 - INFO - Successfully scraped: Pure Nutrition Vitamin C, 60 Tablets (₹220.00, Rating not available, Details: 1, Certs: 0)
+2025-04-19 16:07:49,554 - INFO - Price found via LD+JSON (AggregateOffer): ₹420.00
+2025-04-19 16:07:49,557 - INFO - Rating found via LD+JSON (AggregateRating): 5.0/5
+2025-04-19 16:07:49,559 - INFO - Refined details count: 2 (from initial 4)
+2025-04-19 16:07:49,562 - INFO - Found 0 potential certifications.
+2025-04-19 16:07:49,562 - INFO - Successfully scraped: C VIT 30S TAB (₹420.00, 5.0/5, Details: 2, Certs: 0)
+2025-04-19 16:07:49,655 - INFO - Using page title: 'HealthAid Vitamin C 1000mg (Orange) - 20 Effervescent Tablets (20 x 0.5 Tablets)' over SERP title: 'HealthAid Vitamin C 1000mg (Orange) - 20 Effervescent ...' (Similarity: 0.62)
+2025-04-19 16:07:49,656 - INFO - Price found via LD+JSON (Offer): ₹529.00
+2025-04-19 16:07:49,657 - INFO - Rating found via LD+JSON (AggregateRating): 4.1/5
+2025-04-19 16:07:49,663 - INFO - Refined details count: 1 (from initial 1)
+2025-04-19 16:07:49,694 - INFO - Found 0 potential certifications.
+2025-04-19 16:07:49,695 - INFO - Successfully scraped: HealthAid Vitamin C 1000mg (Orange) - 20 Effervescent Tablets (20 x 0.5 Tablets) (₹529.00, 4.1/5, Details: 1, Certs: 0)
+2025-04-19 16:07:52,068 - INFO - Using page title: 'Vlado's Himalayan Organics Vitamin C Tablets from Natural Fruits | Immnunity, Antioxidant & Skin Care | 120 Veg Tablets' over SERP title: 'Vlado's Himalayan Organics Vitamin C Tablets from ...' (Similarity: 0.41)    
+2025-04-19 16:07:52,139 - INFO - Price found via element selector '.a-price .a-offscreen': ₹799.00
+2025-04-19 16:07:52,173 - INFO - Rating found via 'out of' pattern in element: 4.1/5
+2025-04-19 16:07:52,189 - INFO - Refined details count: 4 (from initial 10)
+2025-04-19 16:07:52,367 - INFO - Found 0 potential certifications.
+2025-04-19 16:07:52,367 - INFO - Successfully scraped: Vlado's Himalayan Organics Vitamin C Tablets from Natural Fruits | Immnunity, Antioxidant & Skin Care | 120 Veg Tablets (₹799.00, 4.1/5, Details: 4, Certs: 0)
+2025-04-19 16:07:52,956 - INFO - Using page title: 'Vlado’s Himalayan Organics Plant Based Vitamin C with Zinc - 120 Veg Capsules' over SERP title: 'Vlado's Himalayan Organics Plant Based Vitamin C with Zinc' (Similarity: 0.62)
+2025-04-19 16:07:53,024 - INFO - Price found via element selector '.a-price .a-offscreen': ₹699.00
+2025-04-19 16:07:53,058 - INFO - Rating found via 'out of' pattern in element: 3.8/5
+2025-04-19 16:07:53,074 - INFO - Refined details count: 4 (from initial 10)
+2025-04-19 16:07:53,245 - INFO - Found 0 potential certifications.
+2025-04-19 16:07:53,246 - INFO - Successfully scraped: Vlado’s Himalayan Organics Plant Based Vitamin C with Zinc - 120 Veg Capsules (₹699.00, 3.8/5, Details: 4, Certs: 0)
+2025-04-19 16:07:53,246 - INFO - Finished gathering scrape results (incl. potential errors).
+2025-04-19 16:07:53,247 - WARNING - Scraping task for link (approx) 'Unknown Link' returned None (likely filtered or failed).
+2025-04-19 16:07:53,247 - WARNING - Scraping task for link (approx) 'Unknown Link' returned None (likely filtered or failed).
+2025-04-19 16:07:53,247 - WARNING - Scraping task for link (approx) 'Unknown Link' returned None (likely filtered or failed).
+2025-04-19 16:07:53,247 - INFO - Filtering 12 scraped products...
+2025-04-19 16:07:53,247 - INFO - Reached total product limit (8). Stopping filter.
+2025-04-19 16:07:53,247 - INFO - Finished filtering. Returning 8 products.
+2025-04-19 16:07:53,247 - INFO - Found 8 relevant products after scraping and filtering for query: Vitamin C Suppliments buy online india
+
+--- Product List (JSON) ---
+[
+  {
+    "name": "Limcee Vitamin C Chewable Tablet | Flavour Orange",
+    "source": "1Mg",
+    "price": "₹23.00",
+    "rating": "4.6/5",
+    "details": [
+      "All products displayed on Tata 1mg are procured from verified and licensed pharmacies. All labs listed on the platform are accredited",
+      "Tata 1mg uses Secure Sockets Layer (SSL) 128-bit encryption and is Payment Card Industry Data Security Standard (PCI DSS) compliant",
+      "Find affordable medicine substitutes, save up to 50% on health products, up to 80% off on lab tests and free doctor consultations.",
+      "QUICK BUY! Get 15% off on medicines*"
+    ],
+    "certifications": [],
+    "link": "https://www.1mg.com/otc/limcee-vitamin-c-chewable-tablet-flavour-orange-otc173959?srsltid=AfmBOopLJlp7TzlQQ2as8uRlEsAAKGyLQmHhkw4Kwpap4gAmKLPjd0NC"
+  },
+  {
+    "name": "New Celin 500 Vitamin C Tablet",
+    "source": "1Mg",
+    "price": "₹39.00",
+    "rating": "4.4/5",
+    "details": [
+      "It is involved in many body functions like collagen synthesis, absorption of iron, wound healing, and the maintenance of cartilage, bones, and teeth",
+      "New Celin 500 Tablet is a health supplement formulated with vitamin C that supports a healthy immune system and rejuvenates your overall health.",
+      "All products displayed on Tata 1mg are procured from verified and licensed pharmacies. All labs listed on the platform are accredited",
+      "Tata 1mg uses Secure Sockets Layer (SSL) 128-bit encryption and is Payment Card Industry Data Security Standard (PCI DSS) compliant"
+    ],
+    "certifications": [],
+    "link": "https://www.1mg.com/otc/new-celin-500-vitamin-c-tablet-otc32913?srsltid=AfmBOoq4ZYbE4JYdc4zmZIJ68fmA2Lv9GlzoOVp_KisFuCTph-exYhJz"
+  },
+  {
+    "name": "Vitamin-C 500 Chewable Tablet",
+    "source": "Apollo Pharmacy",
+    "price": "₹42.30",
+    "rating": "Rating not available",
+    "details": [
+      "Vitamins and minerals are necessary for body development and the prevention of diseases.Vitamin-C 500 Chewable Tablet contains Ascorbic acid (vitamin C) that works by increasing vitamin C levels in the body.",
+      "Vitamin-C 500 Chewable Tablet belongs to a class of medicines called nutritional supplements used to prevent and treat nutritional deficiencies and vitamin C deficiency.",
+      "You are advised to take Vitamin-C 500 Chewable Tablet for as long as your doctor has advised it for you based on your medical condition.",
+      "Most of these side effects of Vitamin-C 500 Chewable Tablet do not require medical attention and gradually resolve over time." 
+    ],
+    "certifications": [
+      "verifiedApollo"
+    ],
+    "link": "https://www.apollopharmacy.in/otc/vitamin-c-chewable-tablet?srsltid=AfmBOoqWeYUJqOhHB7NiRXmvxxGCYIZ_58fE-oxojM4xLEz9TIMA5Gc9"
+  },
+  {
+    "name": "Apollo Pharmacy Vitamin C Effervescent, 20 Tablets",
+    "source": "Apollo Pharmacy",
+    "price": "₹165.00",
+    "rating": "Rating not available",
+    "details": [
+      "Powerful Dose of Vitamin C",
+      "Find top-quality products at Apollo Pharmacy and get them delivered quickly to your doorstep."
+    ],
+    "certifications": [],
+    "link": "https://www.apollopharmacy.in/otc/ap-vitamin-c-effervescent-tablets-20-s?srsltid=AfmBOoptDjZcWk1BjQbXV-kq6_2B8VSFQ_xaAh2920c34lk5DWSZniS2"
+  },
+  {
+    "name": "Lim-O Vitamin C(500mg) & Zinc, Chewable Tablets for Immunity Skin – Vegan Formula For Men Women, Orange Flavour (45 Tablets)",
+    "source": "Amazon",
+    "price": "₹350.00",
+    "rating": "4.0/5",
+    "details": [
+      "Powerful dose: Each easy-to-chew tablet contains 500mg of pure Vitamin C to support immune function and collagen production.", 
+      "Convenient packaging: Comes in a strip packing containing 15 individually wrapped chewable tablets for on-the-go wellness.",   
+      "Increases Vitamin C and Zinc Levels"
+    ],
+    "certifications": [],
+    "link": "https://www.amazon.in/Lim-Vitamin-Chewable-Tablets-Flavour/dp/B09CGRL5YY"
+  },
+  {
+    "name": "Buy C VIT TAB Online at best Price in India",
+    "source": "MedPlus Mart",
+    "price": "₹420.00",
+    "rating": "5.0/5",
+    "details": [
+      "Buy prescription medicines, OTC products & household needs.",
+      "Buy medicines online from India's favorite e-pharmacy."
+    ],
+    "certifications": [],
+    "link": "https://www.medplusmart.com/product/C-VIT-TAB_C_VI0002?srsltid=AfmBOopkmRKQk2ISpcsE6unFZXhbYVpfN4Bhu18iAYzhyBkWL-LBlyr7" 
+  },
+  {
+    "name": "HealthAid Vitamin C 1000mg (Orange) - 20 Effervescent Tablets (20 x 0.5 Tablets)",
+    "source": "Flipkart",
+    "price": "₹529.00",
+    "rating": "4.1/5",
+    "details": [
+      "HealthAid Vitamin C 1000mg (Orange) - 20 Effervescent Tablets (20 x 0.5 Tablets)"
+    ],
+    "certifications": [],
+    "link": "https://www.flipkart.com/healthaid-vitamin-c-1000mg-orange-20-effervescent-tablets/p/itm08f973f325db6"
+  },
+  {
+    "name": "Vlado’s Himalayan Organics Plant Based Vitamin C with Zinc - 120 Veg Capsules",
+    "source": "Amazon",
+    "price": "₹699.00",
+    "rating": "3.8/5",
+    "details": [
+      "WOUND HEALING AND TISSUE REPAIR: Our supplement supports the body's healing process. It helps in wound healing and tissue repair, ensuring that your body recovers more swiftly and effectively. Whether you have a minor scrape or are looking to recover from an injury, this supplement can be a valuable part of your health regimen.",
+      "POTENT ANTIOXIDANT: Vlado’s Himalayan Organics Vitamin C with Zinc Capsules are made up of plant-based ingredients like Green Amla, Guava, Haitaki, Bibhitaki that are powerhouse of antioxidants. These capsules neutralize free radicals that cause damage to tissues and guard against oxidative stress.",
+      "SAFE, HEALTHY, GLUTEN FREE: Vlado’s Himalayan Organics Plant-Based Vitamin C with Zinc is a plant-based dietary supplement free from gluten, eggs, fish, milk. Focused on sustainable farming and products, we do not encourage artificial colors, fillers, binders, harsh chemicals, or preservatives.",
+      "ENHANCED ABSORPTION: The Capsules interact with the other essential vitamins and minerals in the body like iron, which is crucial for proper growth and development. Its properties work on utilizing essential nutrients, minimizing the risk of anemia and iron deficiency in the body."
+    ],
+    "certifications": [],
+    "link": "https://www.amazon.in/Himalayan-Organics-Organic-Vitamin-1000mg/dp/B07Y7LKRS5"
+  }
+]
+
+Found 8 products. Generate comparison table & AI recommendation? (y/n): y
+
+--- Product Comparison Table ---
++-----+---------------------------------------------------------+-----------------+---------+----------------------+
+|   # | Name                                                    | Source          | Price   | Rating               |
++=====+=========================================================+=================+=========+======================+
+|   1 | Limcee Vitamin C Chewable Tablet | Flavour Orange       | 1Mg             | ₹23.00  | 4.6/5                |
++-----+---------------------------------------------------------+-----------------+---------+----------------------+
+|   2 | New Celin 500 Vitamin C Tablet                          | 1Mg             | ₹39.00  | 4.4/5                |
++-----+---------------------------------------------------------+-----------------+---------+----------------------+
+|   3 | Vitamin-C 500 Chewable Tablet                           | Apollo Pharmacy | ₹42.30  | Rating not available |
++-----+---------------------------------------------------------+-----------------+---------+----------------------+
+|   4 | Apollo Pharmacy Vitamin C Effervescent, 20 Tablets      | Apollo Pharmacy | ₹165.00 | Rating not available |
++-----+---------------------------------------------------------+-----------------+---------+----------------------+
+|   5 | Lim-O Vitamin C(500mg) & Zinc, Chewable Tablets for ... | Amazon          | ₹350.00 | 4.0/5                |
++-----+---------------------------------------------------------+-----------------+---------+----------------------+
+|   6 | Buy C VIT TAB Online at best Price in India             | MedPlus Mart    | ₹420.00 | 5.0/5                |
++-----+---------------------------------------------------------+-----------------+---------+----------------------+
+|   7 | HealthAid Vitamin C 1000mg (Orange) - 20 Effervescen... | Flipkart        | ₹529.00 | 4.1/5                |
++-----+---------------------------------------------------------+-----------------+---------+----------------------+
+|   8 | Vlado’s Himalayan Organics Plant Based Vitamin C wit... | Amazon          | ₹699.00 | 3.8/5                |
++-----+---------------------------------------------------------+-----------------+---------+----------------------+
+
+--- Generating AI Recommendation (takes a moment)... ---
+2025-04-19 16:08:05,675 - INFO - Sending prompt to LLM...
+
+--- AI Recommendation ---
+Based on the product data, I recommend Product #1 Limcee Vitamin C Chewable Tablet and Product #5 Lim-O Vitamin C(500mg) & Zinc, Chewable Tablets for Immunity Skin.
+
+Product #1 is a great value option, priced at ₹23.00 with a high rating of 4.6/5, and sourced from a verified pharmacy. Product #5 offers a powerful dose of Vitamin C with a vegan formula, priced at ₹350.00 with a rating of 4.0/5, making it a good option for those looking for a higher dose and specific dietary requirements.
+
+**IMPORTANT:** This AI recommendation is based *only* on the limited data shown (Title, Price, Rating, Highlight). It is NOT medical advice. Product details, availability, and prices change frequently. Always verify information on the seller's website and consult a healthcare professional for health decisions.
+------------------------
+2025-04-19 16:08:06,667 - INFO - aiohttp session closed. Total pages scraped this run: 15
+2025-04-19 16:08:06,668 - INFO - Script finished execution.
+PS C:\Internship GenAI Last Sem\Comparision Agent> 

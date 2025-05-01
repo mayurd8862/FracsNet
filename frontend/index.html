@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot UI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #24cdb9, #edf2f1);
+            /* New gradient colors */
+            overflow: hidden;
+        }
+
+        /* Preloader to prevent white flash */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #24cdb9, #edf2f1);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease;
+        }
+
+        #preloader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Animated Particles Background */
+        /* .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        } */
+
+        /* .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 5s infinite ease-in-out;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        } */
+
+
+
+
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            z-index: -1;
+            /* Keep it behind UI elements */
+        }
+
+        .particle {
+            position: absolute;
+            font-size: 28px;
+            /* Slightly bigger */
+            color: rgba(46, 47, 47, 0.529);
+            /* Soft transparent black */
+            animation: float 8s infinite ease-in-out alternate;
+            filter: blur(1px);
+            /* Subtle blur effect */
+        }
+
+        /* Floating animation */
+        @keyframes float {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0.6;
+            }
+
+            50% {
+                transform: translateY(-15px) scale(1.1);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(0) scale(1);
+                opacity: 0.6;
+            }
+        }
+
+
+
+
+
+        /* Chat Container */
+        .chat-container {
+            width: 700px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Chat Header */
+        .chat-header {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+            color: #098383;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .chat-header i {
+            padding: 10px;
+        }
+
+        /* Chat Messages */
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background: rgba(255, 255, 255, 0.05);
+            scrollbar-width: none;
+            /* Hide scrollbar for Firefox */
+        }
+
+        .chat-messages::-webkit-scrollbar {
+            display: none;
+            /* Hide scrollbar for Chrome, Safari, and Edge */
+        }
+
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message.bot {
+            justify-content: flex-start;
+        }
+
+        .message-content {
+            max-width: 70%;
+            padding: 12px 16px;
+            border-radius: 20px;
+            position: relative;
+            animation: fadeIn 0.3s ease-in-out;
+            font-size: 14px;
+        }
+
+        .message.user .message-content {
+            background: linear-gradient(135deg, #24cdb9, #1eb496);
+            /* New gradient for user messages */
+            color: #fff;
+            border-bottom-right-radius: 5px;
+        }
+
+        .message.bot .message-content {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            border-bottom-left-radius: 5px;
+        }
+
+        /* Typing Animation */
+        .typing {
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        .typing span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            margin: 0 2px;
+            animation: typing 1.4s infinite ease-in-out;
+        }
+
+        .typing span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Chat Input */
+        .chat-input {
+            display: flex;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 20px;
+            outline: none;
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+        }
+
+        .chat-input button {
+            margin-left: 10px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #24cdb9, #1eb496);
+            /* New gradient for button */
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: transform 0.2s ease;
+        }
+
+        .chat-input button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Animated Particles Background -->
+
+    <!-- <div class="particles">
+        <div class="particle" style="top: 10%; left: 20%;"></div>
+        <div class="particle" style="top: 30%; left: 50%;"></div>
+        <div class="particle" style="top: 70%; left: 80%;"></div>
+        <div class="particle" style="top: 50%; left: 10%;"></div>
+        <div class="particle" style="top: 15%; left: 75%;"></div>
+        <div class="particle" style="top: 60%; left: 30%;"></div>
+        <div class="particle" style="top: 40%; left: 90%;"></div>
+        <div class="particle" style="top: 80%; left: 15%;"></div>
+        <div class="particle" style="top: 25%; left: 40%;"></div>
+        <div class="particle" style="top: 90%; left: 60%;"></div>
+    </div> -->
+
+
+    <div class="particles">
+        <i class="fa-solid fa-syringe particle" style="top: 10%; left: 17%;"></i>
+        <!-- <i class="fa-solid fa-heart-pulse particle" style="top: 30%; left: 50%;"></i> -->
+        <i class="fa-solid fa-capsules particle" style="top: 70%; left: 80%;"></i>
+        <i class="fa-solid fa-hand-holding-medical particle" style="top: 50%; left: 8%;"></i>
+        <i class="fa-solid fa-user-nurse particle" style="top: 15%; left: 80%;"></i>
+        <!-- <i class="fa-solid fa-dna particle" style="top: 60%; left: 20%;"></i> -->
+        <i class="fa-solid fa-hospital particle" style="top: 40%; left: 90%;"></i>
+        <i class="fa-solid fa-biohazard particle" style="top: 80%; left: 15%;"></i>
+        <!-- <i class="fa-solid fa-x-ray particle" style="top: 95%; left: 40%;"></i> -->
+        <!-- <i class="fa-solid fa-hand-holding-medical particle" style="top: 90%; left: 90%;"></i> -->
+    </div>
+
+
+
+
+    <!-- Chat Container -->
+    <div class="chat-container">
+        <!-- Chat Header -->
+        <div class="chat-header">
+            <i class="fas fa-heartbeat"></i></i> Medical Chatbot
+        </div>
+
+        <!-- Chat Messages -->
+        <div class="chat-messages" id="chat-messages">
+            <!-- Initial Bot Message -->
+            <div class="message bot">
+                <div class="message-content">
+                    Hello! How can I assist you today?
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Input -->
+        <div class="chat-input">
+            <input type="text" id="question" placeholder="Type your question...">
+            <button onclick="askQuestion()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script>
+        // Preloader logic
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.classList.add('fade-out');
+            }, 500); // Adjust delay as needed
+        });
+
+        // Function to add a message to the chat
+        function addMessage(message, isUser) {
+            const chatMessages = document.getElementById('chat-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message', isUser ? 'user' : 'bot');
+
+            const contentDiv = document.createElement('div');
+            contentDiv.classList.add('message-content');
+            contentDiv.textContent = message;
+
+            messageDiv.appendChild(contentDiv);
+            chatMessages.appendChild(messageDiv);
+
+            // Scroll to the bottom of the chat
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Function to show thinking message
+        function showThinking() {
+            const chatMessages = document.getElementById('chat-messages');
+            const thinkingDiv = document.createElement('div');
+            thinkingDiv.classList.add('message', 'bot');
+            thinkingDiv.innerHTML = `
+                <div class="message-content">
+                    🤔 Thinking...
+                </div>
+            `;
+            chatMessages.appendChild(thinkingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            return thinkingDiv;
+        }
+
+        // Function to ask a question
+        async function askQuestion() {
+            const questionInput = document.getElementById('question');
+            const question = questionInput.value.trim();
+
+            if (!question) {
+                alert('Please enter a question.');
+                return;
+            }
+
+            // Add the user's question to the chat
+            addMessage(question, true);
+
+            // Clear the input
+            questionInput.value = '';
+
+            // Show thinking message
+            const thinkingDiv = showThinking();
+
+            try {
+                // Send the question to the backend
+                const response = await fetch('http://127.0.0.1:5000/ask', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ question: question }),
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch the answer.');
+                }
+
+                const data = await response.json();
+
+                // Remove thinking message
+                thinkingDiv.remove();
+
+                // Add the bot's response to the chat
+                addMessage(data.answer, false);
+            } catch (error) {
+                console.error('Error:', error);
+                thinkingDiv.remove();
+                addMessage('Failed to fetch the answer. Please try again.', false);
+            }
+        }
+
+
+        // Allow pressing Enter to send the question
+        document.getElementById('question').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                askQuestion();
+            }
+        });
+    </script>
+</body>
+
+</html>

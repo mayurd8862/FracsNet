@@ -7,3 +7,5 @@ db
 model
 tokenizer
 embedding_cache
+knowledge/
+test_db/

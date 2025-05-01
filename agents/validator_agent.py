@@ -29,22 +29,9 @@ def validator_agent(query: str) -> dict:
 
     prompt = PromptTemplate(
         template="""
-
-        You are a helpful AI assistant for a healthcare e-commerce application that provides users with product information, price comparisons, ordering assistance, and personalized recommendations.
-
         Your task is to determine whether the user’s query is relevant to the healthcare e-commerce platform.
-
-        The user is allowed to:
-        1. Ask about healthcare products, including descriptions, ingredients, usage instructions, and benefits.
-        2. Request price comparisons between different products or brands.
-        3. Make an order for healthcare products.
-        4. Ask for personalized recommendations based on their needs.
-        5. Inquire about order status, delivery details, and return policies.
-
         The user is NOT allowed to:
         1. Ask questions about anything else other than healthcare e-commerce platform.
-        2. Request personal medical advice or prescriptions.
-        3. Ask about topics unrelated to the e-commerce platform.
 
         {format_instructions}
         Query: {query}
@@ -52,6 +39,32 @@ def validator_agent(query: str) -> dict:
         Your output should be in a structured JSON format like so. Each key is a string and each value is a string.
 
         """,
+
+        # template="""
+
+        # You are a helpful AI assistant for a healthcare e-commerce application that provides users with product information, price comparisons, ordering assistance, and personalized recommendations.
+
+        # Your task is to determine whether the user’s query is relevant to the healthcare e-commerce platform.
+
+        # The user is allowed to:
+        # 1. Ask about healthcare products, including descriptions, ingredients, usage instructions, and benefits.
+        # 2. Request price comparisons between different products or brands.
+        # 3. Make an order for healthcare products.
+        # 4. Ask for personalized recommendations based on their needs.
+        # 5. Inquire about order status, delivery details, and return policies.
+        # 6. general greetings and small talk (hii, heyy, How are you?)
+
+        # The user is NOT allowed to:
+        # 1. Ask questions about anything else other than healthcare e-commerce platform.
+        # 2. Request personal medical advice or prescriptions.
+        # 3. Ask about topics unrelated to the e-commerce platform.
+
+        # {format_instructions}
+        # Query: {query}
+
+        # Your output should be in a structured JSON format like so. Each key is a string and each value is a string.
+
+        # """,
         input_variables=["query"],
         partial_variables={"format_instructions": parser.get_format_instructions()}
     )

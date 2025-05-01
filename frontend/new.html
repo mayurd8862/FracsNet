@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supplements Store</title>
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #2E7D32;
+            --accent-color: #8BC34A;
+            --light-color: #F1F8E9;
+            --dark-color: #1B5E20;
+            --error-color: #F44336;
+            --success-color: #4CAF50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--secondary-color);
+        }
+
+        main {
+            padding: 2rem 0;
+            min-height: calc(100vh - 140px);
+        }
+
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .button-secondary {
+            background-color: #757575;
+        }
+
+        .button-secondary:hover {
+            background-color: #616161;
+        }
+
+        .error {
+            color: var(--error-color);
+            font-size: 0.9rem;
+            margin-top: 0.2rem;
+        }
+
+        .success {
+            color: var(--success-color);
+            font-size: 0.9rem;
+            margin-top: 0.2rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: 1px solid transparent;
+            border-bottom: none;
+            margin-right: 5px;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .tab.active {
+            background-color: white;
+            border-color: #ddd;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            height: 200px;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .order-list {
+            list-style: none;
+        }
+
+        .order-item {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+
+        .chat-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-messages {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .chat-input input {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 80%;
+        }
+
+        .user-message {
+            background-color: var(--light-color);
+            align-self: flex-end;
+            margin-left: auto;
+        }
+
+        .bot-message {
+            background-color: #E8F5E9;
+            align-self: flex-start;
+        }
+
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span>Supplements Store</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#" class="nav-link" data-page="home">Home</a>
+                    <a href="#" class="nav-link" data-page="products">Products</a>
+                    <a href="#" class="nav-link" data-page="account">Account</a>
+                    <a href="#" class="nav-link" data-page="ask">Ask AI Helper</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Home Page -->
+            <div class="page active" id="home">
+                <div class="card">
+                    <h1>Welcome to Supplements Store</h1>
+                    <p>Your one-stop shop for health and fitness supplements.</p>
+                    <div class="tabs">
+                        <div class="tab active" data-tab="login">Login</div>
+                        <div class="tab" data-tab="register">Register</div>
+                    </div>
+
+                    <div class="tab-content active" id="login">
+                        <form id="loginForm">
+                            <div class="form-group">
+                                <label for="loginUsername">Username</label>
+                                <input type="text" id="loginUsername" name="username" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="loginPassword">Password</label>
+                                <input type="password" id="loginPassword" name="password" required>
+                            </div>
+                            <button type="submit">Login</button>
+                            <p id="loginMessage" class="hidden"></p>
+                        </form>
+                    </div>
+
+                    <div class="tab-content" id="register">
+                        <form id="registerForm">
+                            <div class="form-group">
+                                <label for="registerName">Full Name</label>
+                                <input type="text" id="registerName" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="registerUsername">Username</label>
+                                <input type="text" id="registerUsername" name="username" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="registerPassword">Password</label>
+                                <input type="password" id="registerPassword" name="password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="registerEmail">Email</label>
+                                <input type="email" id="registerEmail" name="mail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="registerType">User Type</label>
+                                <select id="registerType" name="usertype" required>
+                                    <option value="customer">Customer</option>
+                                    <option value="seller">Seller</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="registerRegion">Region</label>
+                                <input type="text" id="registerRegion" name="region" required>
+                            </div>
+                            <button type="submit">Register</button>
+                            <p id="registerMessage" class="hidden"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Page -->
+            <div class="page hidden" id="products">
+                <div class="card">
+                    <h1>Our Products</h1>
+                    <div class="product-grid" id="productGrid">
+                        <!-- Products will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Page -->
+            <div class="page hidden" id="account">
+                <div class="card">
+                    <h1>My Account</h1>
+                    <div id="accountContent" class="hidden">
+                        <h2>User Details</h2>
+                        <div id="userDetails"></div>
+
+                        <h2 class="mt-4">My Orders</h2>
+                        <ul class="order-list" id="ordersList">
+                            <!-- Orders will be loaded here -->
+                        </ul>
+
+                        <h2 class="mt-4">Place a New Order</h2>
+                        <form id="orderForm">
+                            <div class="form-group">
+                                <label for="orderEmail">Email</label>
+                                <input type="email" id="orderEmail" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="orderProduct">Product</label>
+                                <select id="orderProduct" name="product" required>
+                                    <!-- Products will be loaded here -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="orderQuantity">Quantity</label>
+                                <input type="number" id="orderQuantity" name="quantity" min="1" value="1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="orderAddress">Shipping Address</label>
+                                <textarea id="orderAddress" name="address" rows="3" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="orderPayment">Payment Method</label>
+                                <select id="orderPayment" name="paymentmethod" required>
+                                    <option value="credit_card">Credit Card</option>
+                                    <option value="paypal">PayPal</option>
+                                    <option value="bank_transfer">Bank Transfer</option>
+                                </select>
+                            </div>
+                            <button type="submit">Place Order</button>
+                            <p id="orderMessage" class="hidden"></p>
+                        </form>
+                    </div>
+                    <div id="loginPrompt">
+                        <p>Please login to view your account details and orders.</p>
+                        <button id="goToLoginBtn">Go to Login</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ask AI Helper Page -->
+            <div class="page hidden" id="ask">
+                <div class="card">
+                    <h1>Ask Our AI Helper</h1>
+                    <p>Have questions about supplements? Our AI helper is here to assist you!</p>
+                    <div class="chat-container">
+                        <div class="chat-messages" id="chatMessages">
+                            <div class="message bot-message">
+                                Hello! I'm your supplements assistant. How can I help you today?
+                            </div>
+                        </div>
+                        <div class="chat-input">
+                            <input type="text" id="chatInput" placeholder="Type your question here...">
+                            <button id="sendMessageBtn">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Supplements Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Store the current user data
+        let currentUser = null;
+        const API_URL = 'http://localhost:8000'; // Change this to your API URL
+
+        // DOM Elements
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('.page');
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const orderForm = document.getElementById('orderForm');
+        const accountContent = document.getElementById('accountContent');
+        const loginPrompt = document.getElementById('loginPrompt');
+        const goToLoginBtn = document.getElementById('goToLoginBtn');
+        const sendMessageBtn = document.getElementById('sendMessageBtn');
+        const chatInput = document.getElementById('chatInput');
+        const chatMessages = document.getElementById('chatMessages');
+
+        // Navigation
+        navLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetPage = this.getAttribute('data-page');
+
+                // Handle account page access
+                if (targetPage === 'account' && !currentUser) {
+                    showPage('home');
+                    return;
+                }
+
+                showPage(targetPage);
+            });
+        });
+
+        // Tab navigation
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function () {
+                const targetTab = this.getAttribute('data-tab');
+
+                // Update active tab
+                tabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                // Show target tab content
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.id === targetTab) {
+                        content.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // Go to login button
+        goToLoginBtn.addEventListener('click', function () {
+            showPage('home');
+        });
+
+        // Send message button
+        sendMessageBtn.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Login form submission
+        loginForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            const loginMessage = document.getElementById('loginMessage');
+
+            try {
+                const response = await fetch(`${API_URL}/login/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    loginMessage.textContent = 'Login successful!';
+                    loginMessage.className = 'success';
+                    loginMessage.classList.remove('hidden');
+
+                    // Store user data
+                    currentUser = {
+                        username: username,
+                        ...data
+                    };
+
+                    // Clear form
+                    loginForm.reset();
+
+                    // Redirect to account page
+                    setTimeout(() => {
+                        showPage('account');
+                        loadUserData();
+                    }, 1000);
+                } else {
+                    loginMessage.textContent = data.detail || 'Login failed!';
+                    loginMessage.className = 'error';
+                    loginMessage.classList.remove('hidden');
+                }
+            } catch (error) {
+                loginMessage.textContent = 'Error connecting to server!';
+                loginMessage.className = 'error';
+                loginMessage.classList.remove('hidden');
+                console.error('Error:', error);
+            }
+        });
+
+        // Register form submission
+        registerForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('registerName').value;
+            const username = document.getElementById('registerUsername').value;
+            const password = document.getElementById('registerPassword').value;
+            const mail = document.getElementById('registerEmail').value;
+            const usertype = document.getElementById('registerType').value;
+            const region = document.getElementById('registerRegion').value;
+            const registerMessage = document.getElementById('registerMessage');
+
+            try {
+                const response = await fetch(`${API_URL}/register`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, username, password, mail, usertype, region })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    registerMessage.textContent = 'Registration successful! Please login.';
+                    registerMessage.className = 'success';
+                    registerMessage.classList.remove('hidden');
+
+                    // Clear form
+                    registerForm.reset();
+
+                    // Switch to login tab
+                    setTimeout(() => {
+                        document.querySelector('.tab[data-tab="login"]').click();
+                    }, 1000);
+                } else {
+                    registerMessage.textContent = data.detail || 'Registration failed!';
+                    registerMessage.className = 'error';
+                    registerMessage.classList.remove('hidden');
+                }
+            } catch (error) {
+                registerMessage.textContent = 'Error connecting to server!';
+                registerMessage.className = 'error';
+                registerMessage.classList.remove('hidden');
+                console.error('Error:', error);
+            }
+        });
+
+        // Order form submission
+        orderForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            if (!currentUser) {
+                showPage('home');
+                return;
+            }
+
+            const email = document.getElementById('orderEmail').value;
+            const product = document.getElementById('orderProduct').value;
+            const quantity = document.getElementById('orderQuantity').value;
+            const address = document.getElementById('orderAddress').value;
+            const paymentmethod = document.getElementById('orderPayment').value;
+            const orderMessage = document.getElementById('orderMessage');
+
+            try {
+                const response = await fetch(`${API_URL}/users/${currentUser.username}/orders`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, product, quantity: parseInt(quantity), address, paymentmethod })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    orderMessage.textContent = 'Order placed successfully!';
+                    orderMessage.className = 'success';
+                    orderMessage.classList.remove('hidden');
+
+                    // Clear form
+                    orderForm.reset();
+
+                    // Reload orders
+                    setTimeout(() => {
+                        loadUserOrders();
+                        document.getElementById('orderEmail').value = currentUser.mail || '';
+                    }, 1000);
+                } else {
+                    orderMessage.textContent = data.detail || 'Failed to place order!';
+                    orderMessage.className = 'error';
+                    orderMessage.classList.remove('hidden');
+                }
+            } catch (error) {
+                orderMessage.textContent = 'Error connecting to server!';
+                orderMessage.className = 'error';
+                orderMessage.classList.remove('hidden');
+                console.error('Error:', error);
+            }
+        });
+
+        // Helper Functions
+        function showPage(pageId) {
+            pages.forEach(page => {
+                page.classList.add('hidden');
+                if (page.id === pageId) {
+                    page.classList.remove('hidden');
+                }
+            });
+
+            // Handle special page loading
+            if (pageId === 'products') {
+                loadProducts();
+            } else if (pageId === 'account') {
+                if (currentUser) {
+                    accountContent.classList.remove('hidden');
+                    loginPrompt.classList.add('hidden');
+                    loadUserData();
+                } else {
+                    accountContent.classList.add('hidden');
+                    loginPrompt.classList.remove('hidden');
+                }
+            }
+        }
+
+        async function loadProducts() {
+            try {
+                const response = await fetch(`${API_URL}/products`);
+                const data = await response.json();
+
+                const productGrid = document.getElementById('productGrid');
+                productGrid.innerHTML = '';
+
+                data.products.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    productCard.innerHTML = `
+                        <div class="product-image">
+                            <svg width="100" height="100" viewBox="0 0 100 100">
+                                <rect width="100" height="100" fill="#e0e0e0" />
+                                <text x="50%" y="50%" font-size="12" text-anchor="middle" dominant-baseline="middle" fill="#666">
+                                    ${product.substring(0, 1)}
+                                </text>
+                            </svg>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-title">${product}</div>
+                            <button class="order-btn" data-product="${product}">Order Now</button>
+                        </div>
+                    `;
+                    productGrid.appendChild(productCard);
+                });
+
+                // Add event listeners to order buttons
+                document.querySelectorAll('.order-btn').forEach(btn => {
+                    btn.addEventListener('click', function () {
+                        const product = this.getAttribute('data-product');
+
+                        if (currentUser) {
+                            showPage('account');
+                            document.getElementById('orderProduct').value = product;
+                            document.getElementById('orderEmail').value = currentUser.mail || '';
+
+                            // Scroll to order form
+                            document.getElementById('orderForm').scrollIntoView({ behavior: 'smooth' });
+                        } else {
+                            showPage('home');
+                        }
+                    });
+                });
+
+                // Also update the product dropdown in the order form
+                const orderProduct = document.getElementById('orderProduct');
+                orderProduct.innerHTML = '';
+                data.products.forEach(product => {
+                    const option = document.createElement('option');
+                    option.value = product;
+                    option.textContent = product;
+                    orderProduct.appendChild(option);
+                });
+
+            } catch (error) {
+                console.error('Error loading products:', error);
+            }
+        }
+
+        async function loadUserData() {
+            if (!currentUser) return;
+
+            try {
+                // Load user details
+                const detailsResponse = await fetch(`${API_URL}/user_details/${currentUser.username}`);
+                const userDetails = await detailsResponse.json();
+
+                if (detailsResponse.ok) {
+                    const userDetailsDiv = document.getElementById('userDetails');
+                    userDetailsDiv.innerHTML = `
+                        <p><strong>Name:</strong> ${userDetails.name}</p>
+                        <p><strong>Username:</strong> ${userDetails.username}</p>
+                        <p><strong>Email:</strong> ${userDetails.mail}</p>
+                        <p><strong>User Type:</strong> ${userDetails.usertype}</p>
+                        <p><strong>Region:</strong> ${userDetails.region}</p>
+                    `;
+
+                    // Store user email for convenience
+                    currentUser.mail = userDetails.mail;
+
+                    // Pre-fill email in order form
+                    document.getElementById('orderEmail').value = userDetails.mail;
+                }
+
+                // Load user orders
+                loadUserOrders();
+
+            } catch (error) {
+                console.error('Error loading user data:', error);
+            }
+        }
+
+        async function loadUserOrders() {
+            if (!currentUser) return;
+
+            try {
+                const ordersResponse = await fetch(`${API_URL}/users/${currentUser.username}/orders`);
+                const ordersData = await ordersResponse.json();
+
+                const ordersList = document.getElementById('ordersList');
+                ordersList.innerHTML = '';
+
+                if (ordersResponse.ok && ordersData.orders && ordersData.orders.length > 0) {
+                    ordersData.orders.forEach(order => {
+                        const orderItem = document.createElement('li');
+                        orderItem.className = 'order-item';
+
+                        // Format date
+                        const orderDate = new Date(order.orderdate);
+                        const formattedDate = orderDate.toLocaleDateString() + ' ' + orderDate.toLocaleTimeString();
+
+                        orderItem.innerHTML = `
+                            <p><strong>Order ID:</strong> ${order.orderid}</p>
+                            <p><strong>Product:</strong> ${order.product}</p>
+                            <p><strong>Quantity:</strong> ${order.quantity}</p>
+                            <p><strong>Date:</strong> ${formattedDate}</p>
+                            <p><strong>Address:</strong> ${order.address}</p>
+                            <p><strong>Payment Method:</strong> ${order.paymentmethod}</p>
+                        `;
+                        ordersList.appendChild(orderItem);
+                    });
+                } else {
+                    ordersList.innerHTML = '<p>No orders found.</p>';
+                }
+            } catch (error) {
+                console.error('Error loading user orders:', error);
+                const ordersList = document.getElementById('ordersList');
+                ordersList.innerHTML = '<p>Error loading orders.</p>';
+            }
+        }
+
+        async function sendMessage() {
+            const question = chatInput.value.trim();
+            if (question === '') return;
+
+            // Add user message to chat
+            const userMessageElem = document.createElement('div');
+            userMessageElem.className = 'message user-message';
+            userMessageElem.textContent = question;
+            chatMessages.appendChild(userMessageElem);
+
+            // Clear input
+            chatInput.value = '';
+
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            // Add thinking indicator
+            const thinkingElem = document.createElement('div');
+            thinkingElem.className = 'message bot-message';
+            thinkingElem.textContent = 'Thinking...';
+            chatMessages.appendChild(thinkingElem);
+
+            try {
+                const response = await fetch(`${API_URL}/ask`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ question })
+                });
+
+                const data = await response.json();
+
+                // Replace thinking indicator with actual response
+                thinkingElem.textContent = data.answer;
+
+                // Scroll to bottom again
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            } catch (error) {
+                console.error('Error asking question:', error);
+                thinkingElem.textContent = 'Sorry, I encountered an error while processing your question.';
+            }
+        }
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function () {
+            showPage('home');
+        });
+    </script>
+</body>
+
+</html>

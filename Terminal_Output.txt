@@ -1,0 +1,226 @@
+PS C:\Internship GenAI Last Sem\Comparision Agent> python app.py
+2025-04-19 12:09:01 - INFO - [<module>:2698] - Starting Terminal App Execution.
+--- MedCompare Terminal ---
+------------------------------
+Initializing MedComparator...
+2025-04-19 12:09:01 - INFO - [__init__:2104] - Attempting to load LLM from path: mistral-7b-instruct-v0.1.Q4_K_M.gguf
+llama_init_from_model: n_ctx_per_seq (2048) < n_ctx_train (32768) -- the full capacity of the model will not be utilized
+2025-04-19 12:09:15 - INFO - [__init__:2126] - LLM loaded successfully from mistral-7b-instruct-v0.1.Q4_K_M.gguf and test inference OK.
+LLM (mistral-7b-instruct-v0.1.Q4_K_M.gguf) loaded successfully.
+MedComparator Initialization complete.
+------------------------------
+
+Enter product name/health concern, or type 'quit' to exit.
+
+Search query: Compare vitamin C suppliments
+2025-04-19 12:09:39 - INFO - [__aenter__:2186] - aiohttp session initialized.
+Searching for adjusted query: 'vitamin C suppliments buy online india'...
+2025-04-19 12:09:39 - INFO - [search_products:2203] - Starting product search for query: 'vitamin C suppliments buy online india'
+2025-04-19 12:09:41 - INFO - [fetch_domain_results:2309] - SERP API success for amazon.in, got 3 organic results.
+2025-04-19 12:09:41 - INFO - [fetch_domain_results:2309] - SERP API success for flipkart.com, got 3 organic results.
+2025-04-19 12:09:42 - INFO - [fetch_domain_results:2309] - SERP API success for netmeds.com, got 3 organic results.
+2025-04-19 12:09:42 - INFO - [fetch_domain_results:2309] - SERP API success for 1mg.com, got 3 organic results.
+2025-04-19 12:09:43 - INFO - [fetch_domain_results:2309] - SERP API success for apollopharmacy.in, got 3 organic results.
+2025-04-19 12:09:43 - INFO - [fetch_domain_results:2309] - SERP API success for pharmeasy.in, got 3 organic results.
+2025-04-19 12:09:44 - INFO - [fetch_domain_results:2309] - SERP API success for medplusmart.com, got 3 organic results.
+2025-04-19 12:09:44 - INFO - [search_products:2226] - Got 21 raw organic results from SERP across 7 domains.
+2025-04-19 12:09:44 - INFO - [process_serp_results:2370] - Gathering results from 14 scraping tasks...
+2025-04-19 12:09:44 - INFO - [scrape_product_page:2384] - Attempting scrape: https://www.amazon.in/b?ie=UTF8&node=18739385031
+2025-04-19 12:09:44 - INFO - [scrape_product_page:2384] - Attempting scrape: https://www.amazon.in/Lim-Vitamin-Chewable-Tablets-Flavour/dp/B09CGRL5YY
+2025-04-19 12:09:44 - INFO - [scrape_product_page:2384] - Attempting scrape: https://www.flipkart.com/health-care/health-supplements/vitamin-supplement/vitamin-c~type/pr?sid=hlc,etg,qtw
+2025-04-19 12:09:44 - INFO - [scrape_product_page:2384] - Attempting scrape: https://www.flipkart.com/health-care/health-supplements/vitamin-supplement/vitamin-c~type/pr?sid=hlc%2Cetg%2Cqtw
+2025-04-19 12:09:44 - INFO - [scrape_product_page:2384] - Attempting scrape: https://www.flipkart.com/boldfit-vitamin-c-effervescent-tablets/p/itm91ea311c1fd32
+2025-04-19 12:09:44 - INFO - [scrape_product_page:2384] - Attempting scrape: https://www.1mg.com/otc/limcee-vitamin-c-chewable-tablet-flavour-orange-otc173959?srsltid=AfmBOopX3wrGeE_zN0Fvivx-7a_vwoccVLaJ0y6Tz8wXFUBKUHApXGVo
+2025-04-19 12:09:44 - INFO - [scrape_product_page:2384] - Attempting scrape: https://www.netmeds.com/non-prescriptions/fitness/vitamins-and-supplements/vitamin-c?srsltid=AfmBOoqS7LJVVbxOayZbExSOwp864rFIkj-tFexBQQkljCJGH6UR3m7z        
+2025-04-19 12:09:44 - INFO - [scrape_product_page:2384] - Attempting scrape: https://www.netmeds.com/non-prescriptions/pure-nutrition-vitamin-c-tablet-60s?srsltid=AfmBOorvoj96z2E6HC2Vmtn8GTVzQw_JQDCQZU1yQTIMRFDuo0rg7EM5
+2025-04-19 12:09:44 - INFO - [scrape_product_page:2384] - Attempting scrape: https://www.netmeds.com/non-prescriptions/fast-up-charge-natural-vitamin-c-orange-flavour-20-s?srsltid=AfmBOoqxhMjDeAQVlBjk2e4M9gwRGSgM3ChH5OdLn38jLa76ye_97-p7
+2025-04-19 12:09:44 - INFO - [scrape_product_page:2384] - Attempting scrape: https://www.apollopharmacy.in/otc/vitamin-c-chewable-tablet?srsltid=AfmBOopAjGFXJqE535SE7xjev-wtueVWH0HVem9h93_z_U33e8fCx2D_
+2025-04-19 12:09:44 - INFO - [scrape_product_page:2384] - Attempting scrape: https://www.apollopharmacy.in/otc/ap-vitamin-c-effervescent-tablets-20-s?srsltid=AfmBOor-_gXORzBgs54ld-Sn9LfmmD3JKXSvYpJz9GGn3gCCUcWqW2wT
+2025-04-19 12:09:44 - INFO - [scrape_product_page:2384] - Attempting scrape: https://www.medplusmart.com/product/C-VIT-TAB_C_VI0002?srsltid=AfmBOopzuXo076_KbuY3l0aEZG0fq6EoSog24fgT2WUL1F_zzUiGUADU
+2025-04-19 12:09:44 - INFO - [scrape_product_page:2384] - Attempting scrape: https://www.medplusmart.com/product/C-VIT-30S-TAB_C_VI0002?srsltid=AfmBOoq9bo1tm2o4F7YL27h4YS7PUVvrRPVzsIFuD7b-9ic4WlrTD2EN
+2025-04-19 12:09:44 - INFO - [scrape_product_page:2384] - Attempting scrape: https://www.medplusmart.com/product/cpercent2dvitpercent2dtablet_c-vit-tab_c_vi0002?srsltid=AfmBOoozEmUrKceQ8EZ1thGMrgMm5QiW2YBHR65RojlfQVFlhw_xg8jG
+2025-04-19 12:09:45 - INFO - [scrape_product_page:2398] - Received status 200 for https://www.apollopharmacy.in/otc/vitamin-c-chewable-tablet?srsltid=AfmBOopAjGFXJqE535SE7xjev-wtueVWH0HVem9h93_z_U33e8fCx2D_
+2025-04-19 12:09:45 - INFO - [scrape_product_page:2398] - Received status 200 for https://www.apollopharmacy.in/otc/ap-vitamin-c-effervescent-tablets-20-s?srsltid=AfmBOor-_gXORzBgs54ld-Sn9LfmmD3JKXSvYpJz9GGn3gCCUcWqW2wT
+2025-04-19 12:09:45 - INFO - [clean_title:2023] - Final cleaned title: 'Buy Apollo Pharmacy Vitamin C Effervescent, 20 Tablets'
+2025-04-19 12:09:45 - INFO - [extract_price:1652] - Price found via LD+JSON: ₹165.00
+2025-04-19 12:09:46 - WARNING - [extract_rating:1909] - Rating extraction failed for apollopharmacy.in, returning default.
+2025-04-19 12:09:46 - INFO - [extract_product_details:1358] - Successfully extracted 2 potential details via LD+JSON for apollopharmacy.in
+2025-04-19 12:09:46 - INFO - [extract_product_details:1454] - Final selected details count for apollopharmacy.in: 4
+2025-04-19 12:09:46 - INFO - [extract_certifications:1565] - Found 0 distinct certifications.
+2025-04-19 12:09:46 - INFO - [scrape_product_page:2468] - SCRAPE SUCCESS: 'Buy Apollo Pharmacy Vitamin C Effervescent, 20 Tablets' (Price: ₹165.00, Rating: Rating not available, Details: 4, Certs: 0)
+2025-04-19 12:09:46 - INFO - [scrape_product_page:2398] - Received status 200 for https://www.flipkart.com/health-care/health-supplements/vitamin-supplement/vitamin-c~type/pr?sid=hlc,etg,qtw
+2025-04-19 12:09:46 - INFO - [scrape_product_page:2398] - Received status 200 for https://www.amazon.in/Lim-Vitamin-Chewable-Tablets-Flavour/dp/B09CGRL5YY
+2025-04-19 12:09:46 - WARNING - [start:1098] - Can not load response cookies: Illegal key '@synapse/init'
+2025-04-19 12:09:46 - WARNING - [start:1098] - Can not load response cookies: Illegal key '@synapse/config'
+2025-04-19 12:09:46 - WARNING - [start:1098] - Can not load response cookies: Illegal key '@synapse/legacy'
+2025-04-19 12:09:46 - WARNING - [start:1098] - Can not load response cookies: Illegal key '@synapse/platform'        
+2025-04-19 12:09:46 - INFO - [scrape_product_page:2398] - Received status 200 for https://www.1mg.com/otc/limcee-vitamin-c-chewable-tablet-flavour-orange-otc173959?srsltid=AfmBOopX3wrGeE_zN0Fvivx-7a_vwoccVLaJ0y6Tz8wXFUBKUHApXGVo      
+2025-04-19 12:09:46 - INFO - [scrape_product_page:2398] - Received status 200 for https://www.flipkart.com/boldfit-vitamin-c-effervescent-tablets/p/itm91ea311c1fd32
+2025-04-19 12:09:46 - INFO - [scrape_product_page:2398] - Received status 200 for https://www.medplusmart.com/product/cpercent2dvitpercent2dtablet_c-vit-tab_c_vi0002?srsltid=AfmBOoozEmUrKceQ8EZ1thGMrgMm5QiW2YBHR65RojlfQVFlhw_xg8jG    
+2025-04-19 12:09:46 - INFO - [clean_title:2023] - Final cleaned title: 'Buy c-vit-tablet_c vit tab'
+2025-04-19 12:09:46 - WARNING - [extract_price:1738] - Price extraction failed, returning default.
+2025-04-19 12:09:46 - WARNING - [extract_rating:1909] - Rating extraction failed for medplusmart.com, returning default.
+2025-04-19 12:09:46 - WARNING - [extract_product_details:1450] - Could not extract any valid details for domain medplusmart.com
+2025-04-19 12:09:46 - INFO - [extract_certifications:1565] - Found 0 distinct certifications.
+2025-04-19 12:09:46 - WARNING - [scrape_product_page:2455] - Skipping product due to lack of essential info (price/rating/details): 'Buy c-vit-tablet_c vit tab' (https://www.medplusmart.com/product/cpercent2dvitpercent2dtablet_c-vit-tab_c_vi0002?srsltid=AfmBOoozEmUrKceQ8EZ1thGMrgMm5QiW2YBHR65RojlfQVFlhw_xg8jG)
+2025-04-19 12:09:46 - INFO - [scrape_product_page:2398] - Received status 200 for https://www.medplusmart.com/product/C-VIT-30S-TAB_C_VI0002?srsltid=AfmBOoq9bo1tm2o4F7YL27h4YS7PUVvrRPVzsIFuD7b-9ic4WlrTD2EN
+2025-04-19 12:09:46 - INFO - [clean_title:2023] - Final cleaned title: 'C VIT 30S TAB ( BIOCEUTICS INC'
+2025-04-19 12:09:46 - INFO - [extract_price:1652] - Price found via LD+JSON: ₹420.00
+2025-04-19 12:09:46 - INFO - [extract_rating:1839] - Rating found via Meta/JSON-LD: 5.0/5
+2025-04-19 12:09:46 - INFO - [extract_product_details:1358] - Successfully extracted 4 potential details via LD+JSON for medplusmart.com
+2025-04-19 12:09:46 - INFO - [extract_product_details:1454] - Final selected details count for medplusmart.com: 2    
+2025-04-19 12:09:46 - INFO - [extract_certifications:1565] - Found 0 distinct certifications.
+2025-04-19 12:09:46 - INFO - [scrape_product_page:2468] - SCRAPE SUCCESS: 'C VIT 30S TAB ( BIOCEUTICS INC' (Price: ₹420.00, Rating: 5.0/5, Details: 2, Certs: 0)
+2025-04-19 12:09:46 - INFO - [clean_title:2023] - Final cleaned title: 'Vitamin-C 500 Chewable Tablet | Uses, Side Effects, Price'
+2025-04-19 12:09:46 - INFO - [extract_price:1710] - Price found via selector '[id*='price']': ₹42.30
+2025-04-19 12:09:46 - WARNING - [extract_rating:1909] - Rating extraction failed for apollopharmacy.in, returning default.
+2025-04-19 12:09:47 - INFO - [extract_product_details:1454] - Final selected details count for apollopharmacy.in: 4
+2025-04-19 12:09:47 - INFO - [extract_certifications:1565] - Found 0 distinct certifications.
+2025-04-19 12:09:47 - INFO - [scrape_product_page:2468] - SCRAPE SUCCESS: 'Vitamin-C 500 Chewable Tablet | Uses, Side Effects, Price' (Price: ₹42.30, Rating: Rating not available, Details: 4, Certs: 0)
+2025-04-19 12:09:47 - INFO - [scrape_product_page:2398] - Received status 200 for https://www.netmeds.com/non-prescriptions/fast-up-charge-natural-vitamin-c-orange-flavour-20-s?srsltid=AfmBOoqxhMjDeAQVlBjk2e4M9gwRGSgM3ChH5OdLn38jLa76ye_97-p7
+2025-04-19 12:09:47 - INFO - [product_unavailable:2039] - Product unavailable based on text keyword match.
+2025-04-19 12:09:47 - INFO - [scrape_product_page:2437] - Product detected as unavailable: https://www.netmeds.com/non-prescriptions/fast-up-charge-natural-vitamin-c-orange-flavour-20-s?srsltid=AfmBOoqxhMjDeAQVlBjk2e4M9gwRGSgM3ChH5OdLn38jLa76ye_97-p7
+2025-04-19 12:09:47 - INFO - [clean_title:2023] - Final cleaned title: 'Limcee Vitamin C Chewable Tablet | Flavour Orange: Buy strip of 15.0 Chewable Tablets at 𝗯𝗲𝘀𝘁 𝗽𝗿𝗶𝗰𝗲 in India | 1mg'
+2025-04-19 12:09:47 - INFO - [extract_price:1652] - Price found via LD+JSON: ₹23.00
+2025-04-19 12:09:47 - INFO - [extract_rating:1839] - Rating found via Meta/JSON-LD: 4.6/5
+2025-04-19 12:09:47 - INFO - [extract_product_details:1454] - Final selected details count for 1mg.com: 4
+2025-04-19 12:09:47 - INFO - [extract_certifications:1565] - Found 2 distinct certifications.
+2025-04-19 12:09:47 - INFO - [scrape_product_page:2468] - SCRAPE SUCCESS: 'Limcee Vitamin C Chewable Tablet | Flavour Orange: Buy strip of 15.0 Chewable Tablets at 𝗯𝗲𝘀𝘁 𝗽𝗿𝗶𝗰𝗲 in India | 1mg' (Price: ₹23.00, Rating: 4.6/5, Details: 4, Certs: 2)
+2025-04-19 12:09:47 - INFO - [product_unavailable:2039] - Product unavailable based on text keyword match.
+2025-04-19 12:09:47 - INFO - [scrape_product_page:2437] - Product detected as unavailable: https://www.flipkart.com/boldfit-vitamin-c-effervescent-tablets/p/itm91ea311c1fd32
+2025-04-19 12:09:47 - INFO - [clean_title:2023] - Final cleaned title: 'Buy Vitamin C Supplement'
+2025-04-19 12:09:47 - WARNING - [extract_price:1738] - Price extraction failed, returning default.
+2025-04-19 12:09:47 - WARNING - [extract_rating:1909] - Rating extraction failed for flipkart.com, returning default.
+2025-04-19 12:09:48 - INFO - [extract_product_details:1454] - Final selected details count for flipkart.com: 4
+2025-04-19 12:09:48 - INFO - [extract_certifications:1565] - Found 1 distinct certifications.
+2025-04-19 12:09:48 - INFO - [scrape_product_page:2468] - SCRAPE SUCCESS: 'Buy Vitamin C Supplement' (Price: Price not available, Rating: Rating not available, Details: 4, Certs: 1)
+2025-04-19 12:09:48 - INFO - [scrape_product_page:2398] - Received status 200 for https://www.amazon.in/b?ie=UTF8&node=18739385031
+2025-04-19 12:09:48 - INFO - [scrape_product_page:2398] - Received status 200 for https://www.netmeds.com/non-prescriptions/fitness/vitamins-and-supplements/vitamin-c?srsltid=AfmBOoqS7LJVVbxOayZbExSOwp864rFIkj-tFexBQQkljCJGH6UR3m7z   
+2025-04-19 12:09:48 - INFO - [product_unavailable:2039] - Product unavailable based on text keyword match.
+2025-04-19 12:09:48 - INFO - [scrape_product_page:2437] - Product detected as unavailable: https://www.netmeds.com/non-prescriptions/fitness/vitamins-and-supplements/vitamin-c?srsltid=AfmBOoqS7LJVVbxOayZbExSOwp864rFIkj-tFexBQQkljCJGH6UR3m7z
+2025-04-19 12:09:48 - INFO - [product_unavailable:2039] - Product unavailable based on text keyword match.
+2025-04-19 12:09:48 - INFO - [scrape_product_page:2437] - Product detected as unavailable: https://www.amazon.in/b?ie=UTF8&node=18739385031
+2025-04-19 12:09:49 - INFO - [clean_title:2023] - Final cleaned title: 'Lim-O Vitamin C(500mg) & Zinc, Chewable Tablets for Immunity Skin – Vegan Formula For Men Women, Orange Flavour (45 Tablets) : Amazon.in: Health & Personal Care' 
+2025-04-19 12:09:49 - INFO - [extract_price:1710] - Price found via selector '.a-price .a-offscreen': ₹350.00
+2025-04-19 12:09:49 - INFO - [extract_rating:1881] - Rating found via selector '#acrPopover .a-icon-alt': 4.0/5
+2025-04-19 12:09:49 - INFO - [extract_product_details:1454] - Final selected details count for amazon.in: 4
+2025-04-19 12:09:49 - INFO - [extract_certifications:1565] - Found 0 distinct certifications.
+2025-04-19 12:09:49 - INFO - [scrape_product_page:2468] - SCRAPE SUCCESS: 'Lim-O Vitamin C(500mg) & Zinc, Chewable Tablets for Immunity Skin – Vegan Formula For Men Women, Orange Flavour (45 Tablets) : Amazon.in: Health & Personal Care' (Price: ₹350.00, Rating: 4.0/5, Details: 4, Certs: 0)
+2025-04-19 12:09:50 - INFO - [scrape_product_page:2398] - Received status 200 for https://www.flipkart.com/health-care/health-supplements/vitamin-supplement/vitamin-c~type/pr?sid=hlc%2Cetg%2Cqtw
+2025-04-19 12:09:50 - INFO - [clean_title:2023] - Final cleaned title: 'Buy Vitamin C Supplement'
+2025-04-19 12:09:50 - WARNING - [extract_price:1738] - Price extraction failed, returning default.
+2025-04-19 12:09:50 - WARNING - [extract_rating:1909] - Rating extraction failed for flipkart.com, returning default.
+2025-04-19 12:09:50 - INFO - [extract_product_details:1454] - Final selected details count for flipkart.com: 4
+2025-04-19 12:09:50 - INFO - [extract_certifications:1565] - Found 1 distinct certifications.
+2025-04-19 12:09:50 - INFO - [scrape_product_page:2468] - SCRAPE SUCCESS: 'Buy Vitamin C Supplement' (Price: Price not available, Rating: Rating not available, Details: 4, Certs: 1)
+2025-04-19 12:09:50 - INFO - [scrape_product_page:2398] - Received status 200 for https://www.medplusmart.com/product/C-VIT-TAB_C_VI0002?srsltid=AfmBOopzuXo076_KbuY3l0aEZG0fq6EoSog24fgT2WUL1F_zzUiGUADU
+2025-04-19 12:09:50 - INFO - [clean_title:2023] - Final cleaned title: 'C VIT 30S TAB ( BIOCEUTICS INC'
+2025-04-19 12:09:50 - INFO - [extract_price:1652] - Price found via LD+JSON: ₹420.00
+2025-04-19 12:09:50 - INFO - [extract_rating:1839] - Rating found via Meta/JSON-LD: 5.0/5
+2025-04-19 12:09:50 - INFO - [extract_product_details:1358] - Successfully extracted 4 potential details via LD+JSON for medplusmart.com
+2025-04-19 12:09:50 - INFO - [extract_product_details:1454] - Final selected details count for medplusmart.com: 2
+2025-04-19 12:09:50 - INFO - [extract_certifications:1565] - Found 0 distinct certifications.
+2025-04-19 12:09:50 - INFO - [scrape_product_page:2468] - SCRAPE SUCCESS: 'C VIT 30S TAB ( BIOCEUTICS INC' (Price: ₹420.00, Rating: 5.0/5, Details: 2, Certs: 0)
+2025-04-19 12:09:51 - INFO - [scrape_product_page:2398] - Received status 200 for https://www.netmeds.com/non-prescriptions/pure-nutrition-vitamin-c-tablet-60s?srsltid=AfmBOorvoj96z2E6HC2Vmtn8GTVzQw_JQDCQZU1yQTIMRFDuo0rg7EM5
+2025-04-19 12:09:51 - INFO - [clean_title:2023] - Final cleaned title: 'Buy Pure Nutrition Vitamin C Tablet 60's'
+2025-04-19 12:09:51 - INFO - [extract_price:1652] - Price found via LD+JSON: ₹371.38
+2025-04-19 12:09:51 - WARNING - [extract_rating:1909] - Rating extraction failed for netmeds.com, returning default.
+2025-04-19 12:09:51 - INFO - [extract_product_details:1358] - Successfully extracted 3 potential details via LD+JSON for netmeds.com
+2025-04-19 12:09:51 - INFO - [extract_product_details:1454] - Final selected details count for netmeds.com: 4
+2025-04-19 12:09:51 - INFO - [extract_certifications:1565] - Found 0 distinct certifications.
+2025-04-19 12:09:51 - INFO - [scrape_product_page:2468] - SCRAPE SUCCESS: 'Buy Pure Nutrition Vitamin C Tablet 60's' (Price: ₹371.38, Rating: Rating not available, Details: 4, Certs: 0)
+2025-04-19 12:09:51 - INFO - [process_serp_results:2376] - Successfully scraped 9 products out of 14 tasks.
+2025-04-19 12:09:51 - INFO - [search_products:2231] - Successfully processed 9 product pages.
+2025-04-19 12:09:51 - INFO - [search_products:2238] - Search complete. Returning 7 filtered products for query: 'vitamin C suppliments buy online india'
+
+--- Found 7 Relevant Products ---
+
+--- Comparison Table ---
+                                                       Title               Price               Rating                
+                               Feature         Source
+Lim-O Vitamin C(500mg) & Zinc, Chewable Tablets for Immun...             ₹350.00                4.0/5 Please keep the item in its original condition, wi...         Amazon
+                                    Buy Vitamin C Supplement Price not available Rating not available These vitamins are essential for making red blood ...       Flipkart
+Limcee Vitamin C Chewable Tablet | Flavour Orange: Buy st...              ₹23.00                4.6/5 Tata 1mg provides you with medical information whi...            1Mg
+                    Buy Pure Nutrition Vitamin C Tablet 60's             ₹371.38 Rating not available Search personal care, ayurvedic, homeopathy, baby ...        Netmeds
+   Vitamin-C 500 Chewable Tablet | Uses, Side Effects, Price              ₹42.30 Rating not available Thus, it helps in treating scurvy (a condition due... Apollopharmacy
+      Buy Apollo Pharmacy Vitamin C Effervescent, 20 Tablets             ₹165.00 Rating not available Increases energy levels: These vitamin C and zinc ... Apollopharmacy
+                              C VIT 30S TAB ( BIOCEUTICS INC             ₹420.00                5.0/5 Buy prescription medicines, OTC products & househo...    Medplusmart
+------------------------
+
+--- Individual Product Details ---
+
+1. Lim-O Vitamin C(500mg) & Zinc, Chewable Tablets for Immunity Skin – Vegan Formula For Men Women, Orange Flavour (45 Tablets) : Amazon.in: Health & Personal Care
+   Source: Amazon          Price: ₹350.00            Rating: 4.0/5
+   Details:
+     - Please keep the item in its original condition, with brand outer box, MRP tags attached, u...
+     - Note: Please keep the item in its original condition, with outer box or case, user manual,...
+   Link:   https://www.amazon.in/Lim-Vitamin-Chewable-Tablets-Flavour/dp/B09CGRL5YY
+
+2. Buy Vitamin C Supplement
+   Source: Flipkart        Price: Price not available Rating: Rating not available
+   Certs:  Nutriorg Certified Amla Powder
+   Details:
+     - These vitamins are essential for making red blood cells and reducing various aspects relat...
+     - Vitamin C supplement prices are reasonable and can be easily ordered from the comfort of y...
+   Link:   https://www.flipkart.com/health-care/health-supplements/vitamin-supplement/vitamin-c~type/pr?sid=...      
+
+3. Limcee Vitamin C Chewable Tablet | Flavour Orange: Buy strip of 15.0 Chewable Tablets at 𝗯𝗲𝘀𝘁 𝗽𝗿𝗶𝗰𝗲 in India | 1mg
+   Source: 1Mg             Price: ₹23.00             Rating: 4.6/5
+   Certs:  LegitScript approved, Verify LegitScript Approval
+   Details:
+     - Tata 1mg provides you with medical information which is curated, written and verified by e...
+     - Get free medicine home delivery in over 1800 cities across India. You can also order Ayurv...
+   Link:   https://www.1mg.com/otc/limcee-vitamin-c-chewable-tablet-flavour-orange-otc173959?srsltid=AfmBOop...      
+
+4. Buy Pure Nutrition Vitamin C Tablet 60's
+   Source: Netmeds         Price: ₹371.38            Rating: Rating not available
+   Details:
+     - Search personal care, ayurvedic, homeopathy, baby & mother care, fitness supplements and h...
+     - Today is Ganesh Chaturthi, one of the most revered and vibrant festivals of the ..
+   Link:   https://www.netmeds.com/non-prescriptions/pure-nutrition-vitamin-c-tablet-60s?srsltid=AfmBOorvoj9...      
+
+5. Vitamin-C 500 Chewable Tablet | Uses, Side Effects, Price
+   Source: Apollopharmacy  Price: ₹42.30             Rating: Rating not available
+   Details:
+     - Thus, it helps in treating scurvy (a condition due to a severe lack of vitamin C in the di...
+     - Vitamin-C 500 Chewable Tablet contains Ascorbic acid (vitamin C) that works by increasing ...
+   Link:   https://www.apollopharmacy.in/otc/vitamin-c-chewable-tablet?srsltid=AfmBOopAjGFXJqE535SE7xjev-wtu...      
+
+6. Buy Apollo Pharmacy Vitamin C Effervescent, 20 Tablets
+   Source: Apollopharmacy  Price: ₹165.00            Rating: Rating not available
+   Details:
+     - Increases energy levels: These vitamin C and zinc tablets aid in the absorption of iron wh...
+     - Enhances collagen production: These vit C effervescent tablets play an essential role in p...
+   Link:   https://www.apollopharmacy.in/otc/ap-vitamin-c-effervescent-tablets-20-s?srsltid=AfmBOor-_gXORzBg...      
+
+7. C VIT 30S TAB ( BIOCEUTICS INC
+   Source: Medplusmart     Price: ₹420.00            Rating: 5.0/5
+   Details:
+     - Buy prescription medicines, OTC products & household needs.
+     - Buy medicines online from India's favorite e-pharmacy.
+   Link:   https://www.medplusmart.com/product/C-VIT-TAB_C_VI0002?srsltid=AfmBOopzuXo076_KbuY3l0aEZG0fq6EoSo...
+
+----------------------------------------
+Generate Expert Analysis? (y/n): y
+
+Generating expert analysis (this may take a moment)...
+2025-04-19 12:09:57 - INFO - [generate_analysis:2502] - Generating analysis for 7 products related to query: 'Compare vitamin C suppliments'
+2025-04-19 12:09:57 - INFO - [generate_analysis:2544] - Sending prompt to LLM for expert analysis...
+2025-04-19 12:12:16 - INFO - [generate_analysis:2556] - Received expert analysis response from LLM.
+2025-04-19 12:12:16 - WARNING - [generate_analysis:2563] - LLM response did not follow expected analysis format. Using raw response.
+
+--- Expert Analysis ---
+Lim-O Vitamin C(500mg) & Zinc, Chewable Tablets for Immunity Skin - Vegan Formula For Men Women, Orange Flavour (45 Tablets)
+
+**IMPORTANT:** This is an AI-generated analysis based ONLY on limited scraped data and is NOT medical advice. Consult a healthcare professional for personalized guidance before making any health decisions.
+-----------------------
+2025-04-19 12:12:16 - INFO - [__aexit__:2193] - aiohttp session closed.
+
+Search query: 
+
+
+
+
+
+
+

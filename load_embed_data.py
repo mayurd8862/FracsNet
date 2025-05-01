@@ -44,4 +44,4 @@ if __name__ == "__main__":
     #     results = loaded_db.similarity_search(query, k=5)
     #     print(results)
 
-    embd_vectordb("knowledge/synthetic_data.pdf")
+    embd_vectordb("knowledge/health.pdf")

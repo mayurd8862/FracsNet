@@ -36,26 +36,6 @@ def compare_agent(product_name):
         verbose=True
     )
 
-    # research_agent = Agent(
-    #         role='Research Agent',
-    #         goal='Find accurate price information quickly',
-    #         backstory="""Expert at rapid price comparison across healthcare e-commerce sites.
-    #         Focus on essential information only.""",
-    #         tools=[web_search_tool],
-    #         llm=llm,
-    #         verbose=True  # False if u wanna Reduce logging for speed
-    #     )
-        
-    # analysis_agent = Agent(
-    #         role='Analysis Agent',
-    #         goal='Quick price analysis and comparison',
-    #         backstory="""Efficient at analyzing price data and providing concise summaries.
-    #         Focus on key metrics only.""",
-    #         llm=llm,
-    #         tools=[web_search_tool],
-    #         verbose=True
-    # )
-
     research_task = Task(
         description=f"""Quickly find prices for {product_name} from major healthcare 
         e-commerce sites. Focus on top 5 most relevant results.""",
@@ -86,10 +66,10 @@ def compare_agent(product_name):
     return result
 
 # Example usage
-if __name__ == "__main__":
-    try:
-        result = compare_agent("pentasa")
-        print("\nPrice Comparison Results:")
-        print(result)
-    except Exception as e:
-        print(f"An error occurred: {str(e)}")
+# if __name__ == "__main__":
+#     try:
+#         result = compare_agent("pentasa")
+#         print("\nPrice Comparison Results:")
+#         print(result)
+#     except Exception as e:
+#         print(f"An error occurred: {str(e)}")

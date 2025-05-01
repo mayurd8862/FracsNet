@@ -1,3 +1,0 @@
-## 🐬 FracsNet Chatbot Testing
-
-hello
