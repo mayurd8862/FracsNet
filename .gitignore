@@ -9,3 +9,4 @@ tokenizer
 embedding_cache
 knowledge/
 test_db/
+env/
