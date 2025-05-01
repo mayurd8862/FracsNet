@@ -12,6 +12,7 @@ sentence-transformers
 email-validator
 pandas
 qdrant_client
+langchain_chroma
 pymongo
 langchain_huggingface
 textblob
