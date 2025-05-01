@@ -19,3 +19,4 @@ hashlib
 textblob
 smtplib
 email
+google-generativeai
