@@ -7,6 +7,6 @@ db
 model
 tokenizer
 embedding_cache
-knowledge/
+knowledge_new/
 test_db/
 env/
