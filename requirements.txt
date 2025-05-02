@@ -11,6 +11,7 @@ neo4j
 streamlit-option-menu
 sentence-transformers
 email-validator
+langchain-google-community
 pandas
 qdrant_client
 pymongo
