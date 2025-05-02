@@ -6,7 +6,8 @@ from io import BytesIO
 from PIL import Image
 from dotenv import load_dotenv
 from neo4j import GraphDatabase
-from langchain_ollama import OllamaLLM
+# from langchain_ollama import OllamaLLM
+from langchain_groq import ChatGroq
 from langchain.agents import initialize_agent, Tool
 from langchain.agents.agent_types import AgentType
 from langchain.memory import ConversationBufferMemory
@@ -34,7 +35,8 @@ df["combined_text"] = df[["ProductName", "Nutrient_category", "Description", "Fo
 
 # Models
 embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
-llm = OllamaLLM(model="gemma:2b", base_url="http://localhost:11434")
+# llm = OllamaLLM(model="gemma:2b", base_url="http://localhost:11434")
+llm = ChatGroq(model_name="llama-3.3-70b-versatile")
 memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
 # --- Functions ---
