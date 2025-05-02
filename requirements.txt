@@ -12,6 +12,7 @@ streamlit-option-menu
 sentence-transformers
 email-validator
 langchain-google-community
+jwt
 pandas
 qdrant_client
 pymongo
