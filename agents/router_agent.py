@@ -87,7 +87,7 @@ load_dotenv()
 
 # If needed, swap to Groq:
 from langchain_groq import ChatGroq
-llm = ChatGroq(model_name="meta-llama/llama-4-scout-17b-16e-instruct")
+llm = ChatGroq(model_name="llama-3.3-70b-versatile")
 
 # Define allowed intent categories
 class QueryClassification(BaseModel):

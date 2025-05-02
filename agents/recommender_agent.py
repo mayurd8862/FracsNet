@@ -68,7 +68,6 @@ from dotenv import load_dotenv
 from neo4j import GraphDatabase
 from PIL import Image
 from io import BytesIO
-from langchain_ollama import OllamaLLM
 from langchain.agents import initialize_agent, Tool
 from langchain.agents.agent_types import AgentType
 from langchain.memory import ConversationBufferMemory
