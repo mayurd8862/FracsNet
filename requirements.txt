@@ -13,6 +13,7 @@ sentence-transformers
 email-validator
 langchain-google-community
 jwt
+beautifulsoup4
 pandas
 qdrant_client
 pymongo
