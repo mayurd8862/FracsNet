@@ -12,7 +12,7 @@ streamlit-option-menu
 sentence-transformers
 email-validator
 langchain-google-community
-jwt
+PyJWT
 beautifulsoup4
 pandas
 qdrant_client
