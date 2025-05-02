@@ -17,3 +17,5 @@ pymongo
 langchain_huggingface
 textblob
 google-generativeai
+langchain_qdrant
+qdrant_client
