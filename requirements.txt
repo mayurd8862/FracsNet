@@ -16,6 +16,7 @@ jwt
 beautifulsoup4
 pandas
 qdrant_client
+nest_asyncio
 pymongo
 langchain_huggingface
 textblob
