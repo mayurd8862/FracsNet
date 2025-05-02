@@ -5,7 +5,7 @@ from langchain.prompts import PromptTemplate
 from langchain.chains import RetrievalQA
 from langchain_groq import ChatGroq
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_chroma import Chroma
+# from langchain_chroma import Chroma
 from dotenv import load_dotenv
 import random
 import json
