@@ -106,19 +106,58 @@ def send_order_email(order_details, email):
         return False
     
 
-# Function to Send Email
-def OTP_verification_email(email,otp):
+# # Function to Send Email
+# def OTP_verification_email(email,otp):
+#     try:
+#         msg = EmailMessage()
+#         msg["Subject"] = "Your OTP for Registration"
+#         msg["From"] = SENDER_EMAIL
+#         msg["To"] = email
+
+
+#         email_body = f"Hello,\n\nYour One-Time Password (OTP) for registration is: {otp}\n\nThis OTP is valid for 10 minutes.\n\nThank you,\nFracsNet Team"
+#         msg.set_content(email_body)
+
+#         # Send Email
+#         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+#             server.starttls()
+#             server.login(SENDER_EMAIL, SENDER_PASSWORD)
+#             server.send_message(msg)
+
+#         print("✅ Email sent successfully!")
+#         return True
+
+#     except Exception as e:
+#         print(f"❌ Error sending email: {e}")
+#         return False
+
+
+def OTP_verification_email(email, otp):
     try:
         msg = EmailMessage()
         msg["Subject"] = "Your OTP for Registration"
         msg["From"] = SENDER_EMAIL
         msg["To"] = email
 
+        # HTML version
+        html_content = f"""
+        <html>
+            <body>
+                <h2>Registration OTP</h2>
+                <p>Your One-Time Password is: <strong>{otp}</strong></p>
+                <p>Valid for 10 minutes</p>
+                <hr>
+                <p>FracsNet Team</p>
+            </body>
+        </html>
+        """
+        
+        # Plain text fallback
+        text_content = f"Your OTP is: {otp}\nValid for 10 minutes"
 
-        email_body = f"Hello,\n\nYour One-Time Password (OTP) for registration is: {otp}\n\nThis OTP is valid for 10 minutes.\n\nThank you,\nFracsNet Team"
-        msg.set_content(email_body)
+        msg.set_content(text_content)
+        msg.add_alternative(html_content, subtype="html")
 
-        # Send Email
         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
             server.starttls()
             server.login(SENDER_EMAIL, SENDER_PASSWORD)
@@ -128,11 +167,11 @@ def OTP_verification_email(email,otp):
         return True
 
     except Exception as e:
-        print(f"❌ Error sending email: {e}")
+        print(f"❌ Error sending email: {str(e)}")
         return False
 
 # # Example Order Data
-# if __name__ == "__main__":
+if __name__ == "__main__":
 #     order_details = {
 #         "OrderID": "123456789",
 #         "Product": "Herbal Tea",
@@ -144,4 +183,4 @@ def OTP_verification_email(email,otp):
     
 #     # Send Order Email
 #     # send_order_email(order_details)
-#     OTP_verification_email("mayur.dabade21@vit.edu", "123456")
+    OTP_verification_email("mayur.dabade21@vit.edu", "123456")
