@@ -87,7 +87,7 @@ def get_vectordb():
 
     embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 
-    client = QdrantClient(path="qdrant_data")
+    client = QdrantClient(path="summary_db")
 
     vector_store = QdrantVectorStore(
         client=client,
