@@ -19,7 +19,7 @@ from agents.recommender_agent import ask_health_bot
 from agents.orderagent_recommendation import recommend_similar_products
 from src.database import save_feedback, chat_summary, get_product_image, get_product_names
 from mainfunction import hybrid_recommendation_tool
-from comparison_new import final_result
+from agents.comparison_agent import final_result
 from agents.send_email import send_order_email,OTP_verification_email
 from mongodb import register_user, login_user, get_user_details, place_order, get_user_orders
 from streamlit_option_menu import option_menu
@@ -245,8 +245,8 @@ def check_inactivity():
         inactive_time = current_time - st.session_state.last_activity_time
         
         # Show analysis if inactive for 10 seconds and analysis not shown yet
-        if inactive_time >= 120 and not st.session_state.analysis_shown:
-            analysis = "⚠️ You will be logged out in 2 seconds due to inactivity"
+        if inactive_time >= 900 and not st.session_state.analysis_shown:
+            analysis = "⚠️ You will be logged out in 10 sec due to inactivity"
             
             # Store the analysis in session state
             st.session_state.warning = analysis
@@ -258,7 +258,7 @@ def check_inactivity():
                 st.warning(st.session_state.get("warning", ""), icon="⚠️")
 
         # Perform logout after 60 seconds of inactivity
-        if inactive_time >= 130:
+        if inactive_time >= 910:
             logout()
 
 def order():
@@ -303,6 +303,7 @@ def order():
             st.markdown("---")
 
             st.subheader("✨ You might also like these products! 🛍️")
+            send_order_email(order_details, st.session_state.email)
 
             with st.spinner("🔍 Finding similar products..."):
                 rec = recommend_similar_products(order_details['Product'])
@@ -345,7 +346,7 @@ def order():
                 
             quantity = st.number_input("Enter quantity:", min_value=1, step=1)
             address = st.text_area("Enter delivery address:")
-            email = st.text_input("Enter email for confirmation:")
+            # email = st.text_input("Enter email for confirmation:")
             paymentmethod = st.radio("Payment Method:", ["COD", "Credit Card", "UPI"])
 
             st.markdown("---")
@@ -356,7 +357,7 @@ def order():
                 
                 order_details = {
                     "OrderID": str(uuid.uuid4()),
-                    "Email": email,
+                    "Email": st.session_state.email,
                     "Product": product,
                     "Quantity": quantity, 
                     "Address": address,
