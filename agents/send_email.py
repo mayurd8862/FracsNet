@@ -131,7 +131,7 @@ def OTP_verification_email(email,otp):
         print(f"❌ Error sending email: {e}")
         return False
 
-# Example Order Data
+# # Example Order Data
 # if __name__ == "__main__":
 #     order_details = {
 #         "OrderID": "123456789",
@@ -143,4 +143,5 @@ def OTP_verification_email(email,otp):
 #     }
     
 #     # Send Order Email
-#     send_order_email(order_details)
+#     # send_order_email(order_details)
+#     OTP_verification_email("mayur.dabade21@vit.edu", "123456")
