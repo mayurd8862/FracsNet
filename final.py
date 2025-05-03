@@ -72,10 +72,10 @@ llm = ChatGroq(model_name="llama-3.3-70b-versatile")
 def verify_mail():
     if st.session_state.otp is None:
         st.session_state.otp = generateOTP()  # Generate OTP only once
-        OTP_verification_email(st.session_state.otp, st.session_state.email)
+        OTP_verification_email(st.session_state.email, st.session_state.otp)
     
     st.write(f"📩 Check your inbox to verify your email and continue registration {st.session_state.email}")
-    st.write(f"OTP: {st.session_state.otp}")  # Show OTP for testing (remove in production)
+    # st.write(f"OTP: {st.session_state.otp}")  # Show OTP for testing (remove in production)
     
     user_otp = st.text_input("Enter OTP")
     left, right = st.columns(2)
