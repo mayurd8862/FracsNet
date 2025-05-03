@@ -98,6 +98,7 @@
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 from qdrant_client import QdrantClient
+import os 
 from qdrant_client.http.models import Distance, VectorParams, PointStruct
 
 # ✅ 1. Load and clean dataset
@@ -154,7 +155,8 @@ def recommend_similar_products(
 ):
 
     
-    csv_path = "C:/Users/mayur/Desktop/FRACSNET/knowledge/product_data.csv"
+    # csv_path = "C:/Users/mayur/Desktop/FRACSNET/knowledge/product_data.csv"
+    csv_path = os.path.join(os.getcwd(), "knowledge", "product_data.csv")
     qdrant_url = "https://b53fcd20-f83a-4aed-884e-902e0282a33e.us-east4-0.gcp.cloud.qdrant.io"
     api_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIn0.dsxhYlJXR2wQupPlbJFvAbjKdZWV42H9lJhcqN91WLs"
     collection_name = "products_recommendation"
@@ -195,3 +197,4 @@ def recommend_similar_products(
 # # ✅ Run the pipeline
 # if __name__ == "__main__":
 #     main()
+
