@@ -32,6 +32,10 @@ This system is built to support a healthcare e-commerce chatbot with intelligent
 
 ![image](https://github.com/user-attachments/assets/f4915396-69ab-4efc-a7b7-03bd9c35172a)
 
+## RAG Architecture
+
+![image](https://github.com/user-attachments/assets/e068c6fc-8ea8-4242-9a13-18a90d35d121)
+
 
 ## 🧠 Agent Details
 ### 1. ✅ Query Validator Agent
