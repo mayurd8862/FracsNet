@@ -13,6 +13,7 @@ This system is built to support a healthcare e-commerce chatbot with intelligent
 - 📦 Order Management with MongoDB backend
 - 📝 Summarization Agent with extractive + abstractive methods
 - 📤 Email Notifications for order confirmation
+- 🎯 Product recommendation according to the content 
 
 # 📐 System Architecture
 
